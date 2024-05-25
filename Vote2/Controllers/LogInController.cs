@@ -38,6 +38,7 @@ namespace Vote2.Controllers
                 {
                     Users _users = new Users();
                     _Context.Users.Add(vm);
+
                     await _Context.SaveChangesAsync();
                     vm.UserEmail = _users.Email;
                     vm.UserName = _users.UserName;

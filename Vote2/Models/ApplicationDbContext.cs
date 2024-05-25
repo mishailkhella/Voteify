@@ -1,4 +1,6 @@
-﻿namespace Vote2.Models
+﻿using static System.Collections.Specialized.BitVector32;
+
+namespace Vote2.Models
 {
     public class ApplicationDbContext : DbContext
     {
@@ -17,7 +19,12 @@
         public DbSet<Usertype> Usertype { get; set; }
         public DbSet<Users> Users { get; set; }
         public DbSet<VoteInfo> Votes { get; set; }
-
+        public DbSet<Faculty> Faculties { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Section> Sections { get; set; }
+        public DbSet<Levels> Levels { get; set; }
+        public DbSet<QuestionAnswer> QuestionAnswer { get; set; }
+        public DbSet<AnswerVote> AnswerVote { get; set; }
+        public DbSet<VotedUsers> VotedUsers { get; set; }
     }
-
 }
