@@ -79,3 +79,4 @@ Vote2/obj/Debug/net7.0/Vote2.assets.cache
 *.editorconfig
 Vote2/obj/Debug/net7.0/Vote2.GeneratedMSBuildEditorConfig.editorconfig
 Vote2/obj/Debug/net7.0/project.razor.vs.json
+/.vs
