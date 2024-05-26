@@ -49,3 +49,39 @@ var SignUp = function () {
         }
     });
 }
+
+var SignIn = function () {
+    debugger
+    var EmailLogIn = $("#SignInEmail").val();
+    var PasswordLogIn = $("#SignInPassword").val();
+    $("#BtnSignIn").html("Please Wait");
+    $('#BtnSignIn').attr('disabled', 'disabled');
+    $.ajax({
+        type: "POST",
+        url: "/LogIn/SignIn",
+        data: {
+            Email: EmailLogIn,
+            Password: PasswordLogIn
+        },
+        success: function (result) {
+            debugger
+            if (result.IsSuccess) {
+                location.href = "/Home/Index";
+
+            }
+            else {
+                Swal.fire({
+                    title: result.Message,
+                    icon: "warning"
+                }).then(function () {
+                    $("#BtnSignIn").html("Sign In");
+                    $('#BtnSignIn').removeAttr('disabled');
+                });
+            }
+            
+        },
+        error: function (errormessage) {
+            SwalSimpleAlert(errormessage.responseText, "warning");
+        }
+    });
+}

@@ -55,7 +55,7 @@
             <h1>Sign In</h1>
             <input id="SignInEmail" type="email" placeholder="Email">
             <input type="password" id="SignInPassword" placeholder="Password">
-            <button type="button" onclick="SignIn()">Sign In</button>
+            <button type="button" id="BtnSignIn" onclick="SignIn()">Sign In</button>
         </form>
     </div>
     <div class="overlay-container">
@@ -97,13 +97,12 @@
     });
 
 
-
     $(document).ready(function () {
         $('#FacultyId').change(function () {
             var _FacultyId = $("#FacultyId").val();
             $.ajax({
                 type: "GET",
-                url: "/LogIn/GetDepartementsByFacultyId?FacultyId=" + _FacultyId,
+                url: "/Common/GetDepartementsByFacultyId?FacultyId=" + _FacultyId,
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (data) {
@@ -131,7 +130,7 @@
             var _DepartmentId = $("#DepartmentId").val();
             $.ajax({
                 type: "GET",
-                url: "/LogIn/GetSectionsByDepartementId?DepartementId=" + _DepartmentId,
+                url: "/Common/GetSectionsByDepartementId?DepartementId=" + _DepartmentId,
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (data) {
@@ -151,9 +150,6 @@
             });
         });
     });
-
-
-
 
 </script>
 
