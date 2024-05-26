@@ -36,7 +36,7 @@
 
             <div class="form-group directiondiv">
                 <label class="col-form-label">Level</label>
-                <select id="LevelId" asp-for="LevelId" style="width: 100%;" class="" required>
+                <select id="LevelId" asp-for="LevelId" asp-items="@ViewBag.DDLLevels" style="width: 100%;" class="" required>
                     <option disabled selected data-key="---select---">--- SELECT ---</option>
                 </select>
                 <span asp-validation-for="LevelId"></span>
@@ -91,7 +91,71 @@
 
     document.getElementById('PhoneNumberInput').addEventListener('input', function (e) {
         var value = e.target.value;
-        e.target.value = value.replace(/[^0-9]/g, '');
+        //e.target.value = value.replace(/[^0-9]/g, '');
+        value = value.replace(/\D/g, '');
         e.target.value = value.substring(0, 11);
     });
+
+
+
+    $(document).ready(function () {
+        $('#FacultyId').change(function () {
+            var _FacultyId = $("#FacultyId").val();
+            $.ajax({
+                type: "GET",
+                url: "/LogIn/GetDepartementsByFacultyId?FacultyId=" + _FacultyId,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    $('#DepartmentId').empty();
+                    $('#SectionId').empty();
+                    $("#DepartmentId").append("<option disabled selected data-key=' select ' > SELECT </option>");
+                    for (var i = 0; i < data.length; i++) {
+                        var _DepartmentId = document.getElementById("DepartmentId");
+                        var _option = document.createElement("option");
+                        _option.text = data[i].Name;
+                        _option.value = data[i].Id;
+                        _DepartmentId.add(_option);
+                    }
+                },
+                error: function (errormessage) {
+                    SwalSimpleAlert(errormessage.responseText, "warning");
+                }
+            });
+        });
+    });
+    
+    
+    $(document).ready(function () {
+        $('#DepartmentId').change(function () {
+            var _DepartmentId = $("#DepartmentId").val();
+            $.ajax({
+                type: "GET",
+                url: "/LogIn/GetSectionsByDepartementId?DepartementId=" + _DepartmentId,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    $('#SectionId').empty();
+                    $("#SectionId").append("<option disabled selected data-key=' select ' > SELECT </option>");
+                    for (var i = 0; i < data.length; i++) {
+                        var _SectionId = document.getElementById("SectionId");
+                        var _option = document.createElement("option");
+                        _option.text = data[i].Name;
+                        _option.value = data[i].Id;
+                        _SectionId.add(_option);
+                    }
+                },
+                error: function (errormessage) {
+                    SwalSimpleAlert(errormessage.responseText, "warning");
+                }
+            });
+        });
+    });
+
+
+
+
 </script>
+
+
+

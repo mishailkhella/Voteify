@@ -3,7 +3,7 @@ using Vote2.Models;
 
 namespace Vote2.ViewModels
 {
-    public class UsersViewModel 
+    public class UsersViewModel : EntityBase
     {
         public Int64 UsersId { get; set; }
         public Int64 UserTypeId { get; set; }
@@ -20,7 +20,6 @@ namespace Vote2.ViewModels
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string UserName { get; set; }
         public string Name { get; set; }
 
  
@@ -29,7 +28,6 @@ namespace Vote2.ViewModels
         {
             return new UsersViewModel
             {
-                UserName = users.UserName,  
                 Email = users.Email,    
                 Password = users.Password,  
                 Name = users.Name,      
@@ -40,13 +38,17 @@ namespace Vote2.ViewModels
                 DepartmentId = users.DepartmentId,
                 SectionId = users.SectionId,
 
+                ModifiedBy = users.ModifiedBy,
+                CreatedBy = users.CreatedBy,
+                ModifiedDate = users.ModifiedDate,
+                CreatedDate = users.CreatedDate,
+                Cancelled = users.Cancelled,
             };       
         }
         public static implicit operator Users(UsersViewModel vm) 
         {
             return new Users
             {
-                UserName = vm.UserName,
                 Email = vm.Email,
                 Password = vm.Password,
                 Name = vm.Name,
@@ -57,7 +59,11 @@ namespace Vote2.ViewModels
                 DepartmentId = vm.DepartmentId,
                 SectionId = vm.SectionId,
 
-
+                ModifiedBy = vm.ModifiedBy,
+                CreatedBy = vm.CreatedBy,
+                ModifiedDate = vm.ModifiedDate,
+                CreatedDate = vm.CreatedDate,
+                Cancelled = vm.Cancelled,
             };
 
         }
