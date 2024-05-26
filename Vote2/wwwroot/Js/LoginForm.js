@@ -15,7 +15,6 @@ signInButton.addEventListener('click', () => {
 
 
 var SignUp = function () {
-    debugger
     var _SignUpForm = $("#SignUpForm").serialize();
     $("#BtnSignUp").html("Please Wait");
     $('#BtnSignUp').attr('disabled', 'disabled');
@@ -24,9 +23,9 @@ var SignUp = function () {
         url: "/LogIn/SignUp",
         data: _SignUpForm,
         success: function (result) {
-            debugger
+            
             if (result.IsSuccess) {
-                debugger
+                
                 var EmailInput = $("#SignUpEmail").val();
                 $("#signIn").click();
                 $("#SignInEmail").val(EmailInput);
@@ -51,7 +50,6 @@ var SignUp = function () {
 }
 
 var SignIn = function () {
-    debugger
     var EmailLogIn = $("#SignInEmail").val();
     var PasswordLogIn = $("#SignInPassword").val();
     $("#BtnSignIn").html("Please Wait");
@@ -64,7 +62,7 @@ var SignIn = function () {
             Password: PasswordLogIn
         },
         success: function (result) {
-            debugger
+            
             if (result.IsSuccess) {
                 location.href = "/Home/Index";
 

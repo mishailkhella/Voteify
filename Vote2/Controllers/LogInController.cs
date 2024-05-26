@@ -16,10 +16,7 @@ namespace Vote2.Controllers
             _Context = Context;
             _iCommon = ICommon;
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
+
         [HttpGet]
         public IActionResult SignIn()
         {
@@ -28,14 +25,13 @@ namespace Vote2.Controllers
             ViewBag.DDLLevels = new SelectList(_iCommon.GetddlLevels(), "Id", "Name");
             return View(vm);
         }
+
         [HttpPost]
         public async Task<JsonResult> SignUp(UsersViewModel vm)
         {
             try
             {
                 JsonResualtViewModel jsonResualtViewModel = new JsonResualtViewModel();
-                //HttpContext.Session.SetString("LoginMail", vm.Email);
-                //var value = HttpContext.Session.GetString("LoginMail");
                 var IfExist = _Context.Users.Any(x => x.Email == vm.Email && x.Password == vm.Password);
                 if (IfExist)
                 {
@@ -94,18 +90,6 @@ namespace Vote2.Controllers
                 throw ex;
             }
 
-        }
-
-        public async Task<JsonResult> GetDepartementsByFacultyId(Int64 FacultyId)
-        {
-            var jsonResualtViewModel = await _iCommon.GetddlDepartementsByFacultyId(FacultyId);
-            return new JsonResult(jsonResualtViewModel);
-        }
-        
-        public async Task<JsonResult> GetSectionsByDepartementId(Int64 DepartementId)
-        {
-            var jsonResualtViewModel = await _iCommon.GetddlSectionsByDepartementId(DepartementId);
-            return new JsonResult(jsonResualtViewModel);
         }
     }
 }

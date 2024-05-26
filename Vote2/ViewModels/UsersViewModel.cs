@@ -15,7 +15,7 @@ namespace Vote2.ViewModels
         public Int64 SectionId { get; set; }
         public Int64 LevelId { get; set; }
 
-        [Required(ErrorMessage = "The number is required.")]
+        [Required(ErrorMessage = "The phone number is required.")]
         [RegularExpression(@"^\d{11}$", ErrorMessage = "The number must be exactly 11 digits.")]
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
