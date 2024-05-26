@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "U7+RhOZdNiUCr6eJ1gtIYWDbUVzeE3FFk/8RCqJyOgk=",
+  "Hash": "VaRHw1D+1+LSQzkzmcJaI0Phy7Djk1mnygVSbmZilgc=",
   "Source": "Vote2",
   "BasePath": "_content/Vote2",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "C:\\Voteify\\Voteify\\Vote2\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Vote2.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\CSS\\LogInForm.css",
+      "SourceId": "Vote2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\",
+      "BasePath": "_content/Vote2",
+      "RelativePath": "CSS/LogInForm.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\CSS\\LogInForm.css"
+    },
+    {
       "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\favicon.ico",
       "SourceId": "Vote2",
       "SourceType": "Discovered",
@@ -66,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\LoginForm.js",
+      "SourceId": "Vote2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\",
+      "BasePath": "_content/Vote2",
+      "RelativePath": "Js/LoginForm.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Js\\LoginForm.js"
     },
     {
       "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\lib\\bootstrap\\css\\BootStrap.css",

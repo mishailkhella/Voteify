@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\Vote2.bundle.scp.css"
     },
     {
+      "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\CSS\\LogInForm.css",
+      "PackagePath": "staticwebassets\\CSS\\LogInForm.css"
+    },
+    {
+      "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\LoginForm.js",
+      "PackagePath": "staticwebassets\\Js\\LoginForm.js"
+    },
+    {
       "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },

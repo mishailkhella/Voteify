@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Vote2.IService;
 using Vote2.Models;
 using Vote2.ViewModels;
 
@@ -8,9 +10,11 @@ namespace Vote2.Controllers
     public class LogInController : Controller
     {
         private readonly ApplicationDbContext _Context;
-        public LogInController(ApplicationDbContext Context)
+        private readonly ICommonService _iCommon;
+        public LogInController(ApplicationDbContext Context, ICommonService ICommon)
         {
             _Context = Context;
+            _iCommon = ICommon;
         }
         public IActionResult Index()
         {
@@ -20,34 +24,40 @@ namespace Vote2.Controllers
         public IActionResult SignIn()
         {
             UsersViewModel vm = new UsersViewModel();
+            ViewBag.DDLFaculties = new SelectList(_iCommon.GetddlFaculties(), "Id", "Name");
             return View(vm);
         }
         [HttpPost]
-        public async Task<IActionResult> SignIn(UsersViewModel vm)
+        public async Task<JsonResult> SignUp(UsersViewModel vm)
         {
             try
             {
+                JsonResualtViewModel jsonResualtViewModel = new JsonResualtViewModel();
+                //HttpContext.Session.SetString("LoginMail", vm.Email);
+                //var value = HttpContext.Session.GetString("LoginMail");
                 var IfExist = _Context.Users.Any(x => x.UserName == vm.UserName && x.Password == vm.Password && x.Name ==vm.Name);
-
 				if (IfExist)
                 {
-                    ViewBag.Notification = "This Account is Exist";
-					return RedirectToAction("Index", "LogIn");
+                    jsonResualtViewModel.IsSuccess = false;
+                    jsonResualtViewModel.Message = "This Account is Exist";
+					return new JsonResult(jsonResualtViewModel);
 				}
                 else
                 {
                     Users _users = new Users();
-                    _Context.Users.Add(vm);
 
+                    _users.ModifiedDate = DateTime.Now;
+                    _users.CreatedDate = DateTime.Now;
+                    _users.Email = vm.Email;    
+                    _users.Name = vm.Name;
+                    _users.Password = vm.Password;
+
+                    _Context.Users.Add(_users);
                     await _Context.SaveChangesAsync();
-                    vm.UserEmail = _users.Email;
-                    vm.UserName = _users.UserName;
-                    vm.PhoneNumber = _users.PhoneNumber;
-                    vm.Name = _users.Name;
-                    vm.Password = _users.Password;
+                    jsonResualtViewModel.IsSuccess = true;
 
-					return RedirectToAction("Index", "LogIn");
-				}
+
+                    return new JsonResult(jsonResualtViewModel);				}
             }
             catch (Exception ex)
             {
@@ -55,6 +65,7 @@ namespace Vote2.Controllers
             }
             
         }
+
     }
 }
 //using Microsoft.AspNetCore.Mvc;

@@ -509,9 +509,9 @@ G:\Misho\Voteify\Vote2\obj\Debug\net7.0\Vote2.pdb
 G:\Misho\Voteify\Vote2\obj\Debug\net7.0\Vote2.genruntimeconfig.cache
 G:\Misho\Voteify\Vote2\obj\Debug\net7.0\ref\Vote2.dll
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\appsettings.Development.json
+C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\appsettings.json
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\Content\vendor\fontawesome-free\package.json
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\libman.json
-C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\appsettings.json
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\Vote2.staticwebassets.runtime.json
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\Vote2.exe
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\Vote2.deps.json
