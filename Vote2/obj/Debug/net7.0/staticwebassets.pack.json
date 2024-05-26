@@ -21,6 +21,14 @@
       "PackagePath": "staticwebassets\\Js\\LoginForm.js"
     },
     {
+      "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\Site.js",
+      "PackagePath": "staticwebassets\\Js\\Site.js"
+    },
+    {
+      "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\Vote\\Vote_CRUD.js",
+      "PackagePath": "staticwebassets\\Js\\Vote\\Vote_CRUD.js"
+    },
+    {
       "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\demo\\chart-area-demo.js",
       "PackagePath": "staticwebassets\\Js\\demo\\chart-area-demo.js"
     },

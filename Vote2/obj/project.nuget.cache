@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Mj7PX9tWM3WacEd+HGXtMJ+1zpv0G0LrJ2wYT9Tt2D7nAReYAXSeIw05AX4suwMjRo/jUysklvZtV9Y0jIgMHg==",
+  "dgSpecHash": "wNhhHDT2z1/ecdjyjXdHnPq8zwJwzUk0uQD2sRAqL+oQ2+SmUZTsml9P5bFrtJaxxVQ1D1luYBd1XvOKBmcK3g==",
   "success": true,
   "projectFilePath": "C:\\Voteify\\Voteify\\Vote2\\Vote2.csproj",
   "expectedPackageFiles": [
@@ -177,6 +177,7 @@
     "C:\\Users\\gamin\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\gamin\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512",
     "C:\\Users\\gamin\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
+    "C:\\Users\\gamin\\.nuget\\packages\\system.linq.dynamic.core\\1.3.14\\system.linq.dynamic.core.1.3.14.nupkg.sha512",
     "C:\\Users\\gamin\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\gamin\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
     "C:\\Users\\gamin\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",

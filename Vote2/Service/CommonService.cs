@@ -1,4 +1,5 @@
-﻿using Vote2.IService;
+﻿using Microsoft.EntityFrameworkCore;
+using Vote2.IService;
 using Vote2.ViewModels;
 
 namespace Vote2.Service
@@ -62,6 +63,33 @@ namespace Vote2.Service
             }).ToList();
 
             return itemDropdownListViewModel;
+        }
+        public IQueryable<VoteInfoViewModel> GetAllVotes()
+        {
+            try
+            {
+                return (from _Votes in _Context.Votes
+                        where _Votes.Cancelled == false
+                        select new VoteInfoViewModel
+                        {
+                            Id = _Votes.Id,
+                            FacultyId = _Votes.FacultyId,
+                            DepartmentId = _Votes.DepartmentId,
+                            UserId = _Votes.UserId,
+                            QuestionId = _Votes.QuestionId,
+                            LevelId = _Votes.LevelId,              
+                            SectionId = _Votes.SectionId,
+                            ModifiedBy = _Votes.ModifiedBy,
+                            CreatedBy = _Votes.CreatedBy,
+                            ModifiedDate = _Votes.ModifiedDate,
+                            CreatedDate = _Votes.CreatedDate,
+                            Cancelled = _Votes.Cancelled,
+                        }).OrderByDescending(x => x.Id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

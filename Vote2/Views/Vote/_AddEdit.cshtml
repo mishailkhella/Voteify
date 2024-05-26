@@ -1,0 +1,112 @@
+﻿@model Vote2.ViewModels.VoteInfoViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <form id="frmVote">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="CreatedDate" />
+                <input type="hidden" asp-for="CreatedBy" />
+                <input type="hidden" asp-for="ModifiedBy" />
+
+
+                <div class="form-group directiondiv">
+                <label class="control-label">Vote Name</label>
+                <input type="text" asp-for="VoteName" class="form-control" />
+                    <span asp-validation-for="VoteName" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group directiondiv">
+                    <label class="col-form-label">Faculty</label><span style="color:red;">*</span>
+                    <select id="FacultyId" asp-for="FacultyId" asp-items="@ViewBag.GetddlFaculties" style="width: 100%;" class="" required>
+                        <option disabled selected data-key="---select---">--- SELECT ---</option>
+                    </select>
+                    <span asp-validation-for="FacultyId" class="text-danger"></span>
+                </div>
+               
+                <div class="form-group directiondiv">
+                    <label class="col-form-label">Departement</label>
+                    <select id="DepartmentId" asp-for="DepartmentId" style="width: 100%;" class="" required>
+                        <option disabled selected data-key="---select---">--- SELECT ---</option>
+                    </select>
+                    <span asp-validation-for="DepartmentId"></span>
+                </div>
+
+                <div class="form-group directiondiv">
+                    <label class="col-form-label">Section</label>
+                    <select id="SectionId" asp-for="SectionId" style="width: 100%;" class="" required>
+                        <option disabled selected data-key="---select---">--- SELECT ---</option>
+                    </select>
+                    <span asp-validation-for="SectionId"></span>
+                </div>
+
+                <div class="form-group directiondiv">
+                    <label class="col-form-label">Level</label>
+                    <select id="LevelId" asp-for="LevelId" asp-items="@ViewBag.DDLLevels" style="width: 100%;" class="" required>
+                        <option disabled selected data-key="---select---">--- SELECT ---</option>
+                    </select>
+                    <span asp-validation-for="LevelId"></span>
+                </div>
+
+
+
+                @*  <div class="form-group directiondiv">
+                <div class="checkBox-con">
+                <div class="directiondiv has-tooltip">
+                <i class="fa fa-exclamation-circle bs-tooltip-auto Tool-Tip"></i>
+                <div class="Tool-Tip-div">
+                <b class="Tool-Tip-Text">When checking the paging box, the assessment will be in multiple pages</b>
+                </div>
+                <label asp-for="IsPaging" data-key="paging">Paging</label>
+                </div>
+                <input asp-for="IsPaging" type="checkbox" id="IsPaging">
+                </div>
+                </div>*@
+
+                @*<div class="form-group row directiondiv" id="QNoInPage-Div">
+
+                <label asp-for="QNoInPage" data-key="qnoinpage">Question No. per Page</label>
+
+                <div class="col-md-3">
+                <input asp-for="QNoInPage" type="number" id="QNoInPage" step="1" min="1" id="QNoInPage" style="width:100%;" />
+                </div>
+
+                </div>*@
+
+                <div class="form-group">
+                    <button type="button" id="btnSave" data-key="save" onclick="Save()" class="btn btn-info">Save</button>
+                    <button type="button" id="btnClose" data-key="close" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<style>
+    .checkBox-con {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        flex-direction: column;
+    }
+
+        .checkBox-con label {
+            font-size: 20px;
+        }
+
+        .checkBox-con input {
+            width: 30px;
+            height: 30px;
+        }
+
+    #QNoInPage-Div {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+</style>

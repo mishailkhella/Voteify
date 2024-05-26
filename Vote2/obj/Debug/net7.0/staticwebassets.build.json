@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "V9mCdEeLRPEAR2tOW/Njt+o8OPSAW5R5XPjUveJqYh4=",
+  "Hash": "CUGTalQ0eO/ZVLaRHf+69zPdKphQvP7oR9iffV/RMrc=",
   "Source": "Vote2",
   "BasePath": "_content/Vote2",
   "Mode": "Default",
@@ -236,6 +236,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Js\\sb-admin-2.min.js"
+    },
+    {
+      "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\Site.js",
+      "SourceId": "Vote2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\",
+      "BasePath": "_content/Vote2",
+      "RelativePath": "Js/Site.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Js\\Site.js"
+    },
+    {
+      "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\Vote\\Vote_CRUD.js",
+      "SourceId": "Vote2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\",
+      "BasePath": "_content/Vote2",
+      "RelativePath": "Js/Vote/Vote_CRUD.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Js\\Vote\\Vote_CRUD.js"
     },
     {
       "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Layout\\bootstrap\\js\\bootstrap.bundle.js",
