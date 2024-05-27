@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wovtOema1+XDi1tIbvUKO4N8RVn0BKaWHkNYUjqa0SQ=",
+  "Hash": "BLt13z6EC79GCSLnMOb54D61WLpVPY1+gqx1u7LeNW0=",
   "Source": "Vote2",
   "BasePath": "_content/Vote2",
   "Mode": "Default",
@@ -255,12 +255,12 @@
       "OriginalItemSpec": "wwwroot\\Js\\QuestionAnswer\\QuestionAnswer_CRUD.js"
     },
     {
-      "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\QuestionAnswer\\Vote_Datatable.js",
+      "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\QuestionAnswer\\QuestionAnswer_Datatable.js",
       "SourceId": "Vote2",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\",
       "BasePath": "_content/Vote2",
-      "RelativePath": "Js/QuestionAnswer/Vote_Datatable.js",
+      "RelativePath": "Js/QuestionAnswer/QuestionAnswer_Datatable.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -269,7 +269,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Js\\QuestionAnswer\\Vote_Datatable.js"
+      "OriginalItemSpec": "wwwroot\\Js\\QuestionAnswer\\QuestionAnswer_Datatable.js"
     },
     {
       "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\sb-admin-2.js",

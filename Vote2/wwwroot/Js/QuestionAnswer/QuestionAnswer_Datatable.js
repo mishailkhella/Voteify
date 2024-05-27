@@ -1,12 +1,7 @@
 $(document).ready(function () {
-    
-    document.title = 'Vote';
-    tblVotesDataTable();
-   
-});
-var tblVotesDataTable = function () {
-    
-    $("#tblVotes").DataTable({
+    document.title = 'Book';
+
+    $("#tblQuestionAnswer").DataTable({
         paging: true,
         select: true,
         "order": [[0, "desc"]],
@@ -37,13 +32,13 @@ var tblVotesDataTable = function () {
                     return "<a href='#' class='fa fa-eye' onclick=Details('" + row.Id + "');>" + row.Id + "</a>";
                 }
             },
-            { "data": "FacultyName", "name": "FacultyName" },
+            { "data": "QuestionName", "name": "QuestionName" },
+            { "data": "FacultyId", "name": "FacultyId" },
             { "data": "DepartmentId", "name": "DepartmentId" },
             { "data": "SectionId", "name": "SectionId" },
-            { "data": "LevelId", "name": "LevelId" },
-           
-
-          
+            {
+                
+            },
             {
                 "data": "CreatedDate",
                 "name": "CreatedDate",
@@ -69,12 +64,12 @@ var tblVotesDataTable = function () {
         ],
 
         'columnDefs': [{
-            'targets': [7, 8],
+            'targets': [8, 9],
             'orderable': false,
         }],
 
         "lengthMenu": [[20, 10, 15, 25, 50, 100, 200], [20, 10, 15, 25, 50, 100, 200]]
     });
 
-} 
+});
 

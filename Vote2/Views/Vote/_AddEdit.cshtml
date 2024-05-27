@@ -31,7 +31,7 @@
 
                 <div class="form-group directiondiv">
                     <label class="col-form-label">Departement</label>
-                    <select id="DepartmentId" asp-for="DepartmentId" style="width: 100%;" class="" required>
+                    <select id="DepartmentId" asp-items="@ViewBag.Departements" asp-for="DepartmentId" style="width: 100%;" class="" required>
                         <option disabled selected data-key="---select---">--- SELECT ---</option>
                     </select>
                     <span asp-validation-for="DepartmentId"></span>
@@ -39,7 +39,7 @@
 
                 <div class="form-group directiondiv">
                     <label class="col-form-label">Section</label>
-                    <select id="SectionId" asp-for="SectionId" style="width: 100%;" class="" required>
+                    <select id="SectionId" asp-for="SectionId" asp-items="@ViewBag.Sections" style="width: 100%;" class="" required>
                         <option disabled selected data-key="---select---">--- SELECT ---</option>
                     </select>
                     <span asp-validation-for="SectionId"></span>

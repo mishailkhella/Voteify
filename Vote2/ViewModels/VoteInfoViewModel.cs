@@ -15,8 +15,8 @@ namespace Vote2.ViewModels
         public Int64 LevelId { get; set; }
         public string VoteName { get; set; }
         public bool IsActive { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime StartDate { get; set; } = DateTime.Now;
+        public DateTime EndDate { get; set; } = DateTime.Now;
 
 
         public static implicit operator VoteInfoViewModel(VoteInfo Votes)

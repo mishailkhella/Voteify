@@ -764,3 +764,4 @@ C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\refint\Vote2.dll
 C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.pdb
 C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.genruntimeconfig.cache
 C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\ref\Vote2.dll
+C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\DatatablesParser.dll

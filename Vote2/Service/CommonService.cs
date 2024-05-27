@@ -111,12 +111,19 @@ namespace Vote2.Service
             try
             {
                 return (from _Votes in _Context.Votes
-                        join type in _Context.Questionstype
-                        on _Votes.Id equals type.Id
+                       join _Faculty in _Context.Faculties
+                       on _Votes.FacultyId equals _Faculty.Id
+                       join _Department in _Context.Departments
+                       on _Votes.DepartmentId equals _Department.Id
+                       join _Section in _Context.Sections
+                       on _Votes.SectionId equals _Section.Id
+                       
                         where _Votes.Cancelled == false 
                         select new VoteInfoViewModel
                         {
                             Id = _Votes.Id,
+                            Name = _Faculty?.Name,
+
                             FacultyId = _Votes.FacultyId,
                             DepartmentId = _Votes.DepartmentId,
                             StartDate = _Votes.StartDate,

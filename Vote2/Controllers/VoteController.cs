@@ -31,7 +31,7 @@ namespace Vote2.Controllers
                 var start = Request.Form["start"].FirstOrDefault();
                 var length = Request.Form["length"].FirstOrDefault();
 
-                var sortColumn = Request.Form["columns[" + Request.Form["order[][column]"].FirstOrDefault() + "][name]"].FirstOrDefault();
+                var sortColumn = Request.Form["columns[" + Request.Form["order[0][column]"].FirstOrDefault() + "][name]"].FirstOrDefault();
                 var sortColumnAscDesc = Request.Form["order[0][dir]"].FirstOrDefault();
                 var searchValue = Request.Form["search[value]"].FirstOrDefault();
 
@@ -45,7 +45,7 @@ namespace Vote2.Controllers
                 {
 
                     _GetGridItem = _GetGridItem.OrderBy(sortColumn + " " + sortColumnAscDesc);
-                     
+
                 }
                 //Search
                 if (!string.IsNullOrEmpty(searchValue))
@@ -78,10 +78,18 @@ namespace Vote2.Controllers
             VoteInfoViewModel vm = new(); 
             ViewBag.GetddlFaculties = new SelectList(_iCommon.GetddlFaculties().ToList(), "Id", "Name");
             ViewBag.GetddlLevels = new SelectList(_iCommon.GetddlLevels().ToList(), "Id", "Name");
-
+                  
             if (id > 0)
             {
-                vm = await _Context.Votes.FindAsync(vm.Id);
+                VoteInfo Vote = await _Context.Votes.Where(x=>x.Cancelled==false && x.Id == id).FirstOrDefaultAsync();
+                if (Vote == null)
+                {
+                    return NotFound();
+                }
+                vm = Vote;
+
+                ViewBag.Departements = new SelectList(await _iCommon.GetddlDepartementsByFacultyId(Vote.FacultyId), "Id", "Name");
+                ViewBag.Sections = new SelectList(await _iCommon.GetddlSectionsByDepartementId(Vote.DepartmentId), "Id", "Name");
 
                 return PartialView("_AddEdit", vm);
             }

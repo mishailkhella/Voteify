@@ -19,7 +19,7 @@ var Save = function () {
     //if (!$("#frmVote").valid()) {
     //    return;
     //}
-  
+
     var _frmVote = $("#frmVote").serialize();
     $("#btnSave").val("Please Wait");
     $('#btnSave').attr('disabled', 'disabled');
@@ -43,3 +43,38 @@ var Save = function () {
         }
     });
 }
+var Delete = function (id) {
+    
+
+    Swal.fire({
+        title: 'Do you want to delete this Vote?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                type: "POST",
+                url: "/Vote/Delete?id=" + id,
+                success: function (result) {
+                    var message = "Vote has been deleted successfully.";
+                    Swal.fire({
+                        title: message,
+                        icon: 'info',
+                    });
+
+                    var table = $('#tblVotes').DataTable();
+                    table.clear();
+                    table.destroy();
+                    tblVotesDataTable()
+                }
+            });
+        }
+    });
+
+
+
+
+};
