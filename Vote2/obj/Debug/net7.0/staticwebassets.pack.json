@@ -37,8 +37,8 @@
       "PackagePath": "staticwebassets\\Js\\Question\\Question_CRUD.js"
     },
     {
-      "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\Question\\Vote_Datatable.js",
-      "PackagePath": "staticwebassets\\Js\\Question\\Vote_Datatable.js"
+      "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\Question\\Question_Datatable.js",
+      "PackagePath": "staticwebassets\\Js\\Question\\Question_Datatable.js"
     },
     {
       "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\Site.js",

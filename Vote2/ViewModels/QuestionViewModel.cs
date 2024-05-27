@@ -9,6 +9,7 @@ namespace Vote2.ViewModels
        
         public Int64 QuestionId { get; set; }
         public string QuestionName { get; set; }
+        public string? VoteName { get; set; }
         public Int64 QuestionTypeId { get; set; }
         public Int64 VoteId { get; set; }
         public string? QuestionTypeName { get; set; }

@@ -1,12 +1,12 @@
 $(document).ready(function () {
 
     document.title = 'Vote';
-    tblQuestionAnserDataTable();
+   tblQuestionDataTable();
 
 });
-var tblQuestionAnserDataTable = function () {
+var tblQuestionDataTable = function () {
 
-    $("#tblQuestionAnser").DataTable({
+    $("#tblQuestion").DataTable({
         paging: true,
         select: true,
         "order": [[0, "desc"]],
@@ -25,7 +25,7 @@ var tblQuestionAnserDataTable = function () {
         "stateSave": true,
 
         "ajax": {
-            "url": "/QuestionAnser/GetDataTabelData",
+            "url": "/Question/GetDataTabelData",
             "type": "POST",
             "datatype": "json"
         },
@@ -83,5 +83,55 @@ var tblQuestionAnserDataTable = function () {
 
         "lengthMenu": [[20, 10, 15, 25, 50, 100, 200], [20, 10, 15, 25, 50, 100, 200]]
     });
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

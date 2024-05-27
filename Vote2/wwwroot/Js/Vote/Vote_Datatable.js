@@ -6,7 +6,7 @@ $(document).ready(function () {
 });
 var tblVotesDataTable = function () {
     
-    $("#tblVotes").DataTable({
+    $("#tblQuestion").DataTable({
         paging: true,
         select: true,
         "order": [[0, "desc"]],
@@ -82,7 +82,7 @@ var tblVotesDataTable = function () {
         ],
 
         'columnDefs': [{
-            'targets': [10, 11],
+            'targets': [7, 8],
             'orderable': false,
         }],
 

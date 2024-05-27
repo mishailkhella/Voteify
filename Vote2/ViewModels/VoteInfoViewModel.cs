@@ -8,9 +8,9 @@ namespace Vote2.ViewModels
         public Int64 Id { get; set; }
         [Required]
         public Int64 FacultyId { get; set; }
-        public string  FacultyName { get; set; }
-        public string  DepartmentName { get; set; }
-        public string  SectionName { get; set; }
+        public string? FacultyName { get; set; }
+        public string? DepartmentName { get; set; }
+        public string? SectionName { get; set; }
         public string? LevelName { get; set; }
 
         [Required]

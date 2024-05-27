@@ -153,10 +153,13 @@ namespace Vote2.Service
             try
             {
                 return (from _Question in _Context.Questions
+                        join _Vote in _Context.Votes
+                        on _Question.VoteId equals _Vote.Id
                         where _Question.Cancelled == false
                         select new QuestionViewModel
                         {
                             Id = _Question.Id,
+                            VoteName = _Vote.VoteName,
                             VoteId = _Question.VoteId,
                             QuestionTypeId = _Question.QuestionTypeId,
                             QuestionName= _Question.QuestionName,
