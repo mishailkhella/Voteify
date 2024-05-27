@@ -120,7 +120,6 @@ namespace Vote2.Controllers
                     }
                     else
                     {
-
                         _Vote.Id = vm.Id;
                         _Vote.VoteName = vm.VoteName;
                         _Vote.DepartmentId = vm.DepartmentId;

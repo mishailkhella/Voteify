@@ -1,0 +1,42 @@
+﻿@model Vote2.ViewModels.UserVotesViewModel
+
+<link href="~/CSS/VoteCard.css" rel="stylesheet" />
+<div class="row" style="justify-content: space-evenly; row-gap: 20px;">
+
+    @for (int i = 0; i < Model.VotesViewModelList.Count; i++)
+    {
+        <div class="cards__inner">
+            <div class="cards__card card">
+                <p class="card__heading">@Model.UserName | Allowed to vote</p>
+                <p class="card__price">@Model.VotesViewModelList[i].VoteName</p>
+                <div class="example">
+                    <h1>⏰ End Date</h1>
+                    <div id="flipdown-@i" class="flipdown" data-end-date="@Model.VotesViewModelList[i].EndDate"></div>
+                </div>
+                <button class="card__cta cta" onclick="StartVote('@Model.VotesViewModelList[i].Id', '@Model.UserId')">Get Started</button>
+            </div>
+            <div class="overlay cards__inner"></div>
+        </div>
+    }
+
+</div>
+<script>
+    $(document).ready(function () {
+        $('.flipdown').each(function (index, element) {
+            const endDate = $(element).data('end-date');
+            const endDateUnix = new Date(endDate).getTime() / 1000;
+
+            new FlipDown(endDateUnix, element.id).start();
+        });
+    });
+</script>
+
+<style>
+    .flipdown.flipdown__theme-dark .rotor-group-heading:before {
+        color: #fff;
+    }
+
+    .card:hover .flipdown.flipdown__theme-dark .rotor-group-heading:before {
+        color: #000000;
+    }
+</style>
