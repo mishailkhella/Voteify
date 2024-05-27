@@ -319,6 +319,25 @@ namespace Vote2.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Vote2.Models.Userslevels", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<long>("LevelId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserLevels");
+                });
+
             modelBuilder.Entity("Vote2.Models.Usertype", b =>
                 {
                     b.Property<long>("Id")

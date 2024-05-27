@@ -39,8 +39,8 @@ var tblVotesDataTable = function () {
             },
             { "data": "FacultyName", "name": "FacultyName" },
             { "data": "DepartmentName", "name": "DepartmentName" },
-            { "data": "SectionNeme", "name": "SectionName" },
-            { "data": "Level", "name": "Level" },
+            { "data": "SectionName", "name": "SectionName" },
+            { "data": "LevelName", "name": "LevelName" },
            
 
           
@@ -51,10 +51,22 @@ var tblVotesDataTable = function () {
                 "render": function (data) {
                     var date = new Date(data);
                     var month = date.getMonth() + 1;
-                    return (month.length > 1 ? month : month) + "/" + date.getDate() + "/" + date.getFullYear();
+                    return (date.getDate() + "/" + month.length > 1 ? month : month) + "/" +  date.getFullYear();
                 }
             },
             { "data": "CreatedBy", "name": "CreatedBy" },
+
+            {
+                "data": "ModefiedDate",
+                "name": "ModefiedDate",
+                "autoWidth": true,
+                "render": function (data) {
+                    var date = new Date(data);
+                    var month = date.getMonth() + 1;
+                    return ( date.getDate() + "/" + month.length > 1 ? month : month) + "/" + date.getFullYear();
+                }
+            },
+            { "data": "ModefiedBy", "name": "ModefiedBy" },
 
             {
                 data: null, render: function (data, type, row) {
@@ -69,7 +81,7 @@ var tblVotesDataTable = function () {
         ],
 
         'columnDefs': [{
-            'targets': [7, 8],
+            'targets': [9, 10],
             'orderable': false,
         }],
 

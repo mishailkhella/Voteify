@@ -13,6 +13,7 @@ namespace Vote2.Models
 
         }
         public DbSet<Answer> Answers { get; set; }
+       
         public DbSet<AnswerVote> VotesAnswers { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Questiontype> Questionstype { get; set; }
@@ -26,5 +27,6 @@ namespace Vote2.Models
         public DbSet<QuestionAnswer> QuestionAnswer { get; set; }
         public DbSet<AnswerVote> AnswerVote { get; set; }
         public DbSet<VotedUsers> VotedUsers { get; set; }
+        public DbSet<Userslevels> UserLevels { get; set; }
     }
 }
