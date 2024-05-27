@@ -117,13 +117,17 @@ namespace Vote2.Service
                        on _Votes.DepartmentId equals _Department.Id
                        join _Section in _Context.Sections
                        on _Votes.SectionId equals _Section.Id
-                       
+                       join _Level in _Context.Levels   
+                       on _Votes.LevelId equals _Level.Id
+
                         where _Votes.Cancelled == false 
                         select new VoteInfoViewModel
                         {
                             Id = _Votes.Id,
-                            Name = _Faculty?.Name,
-
+                            FacultyName = _Faculty.Name,
+                            DepartmentName = _Department.Name,
+                            SectionName = _Section.Name,
+                            LevelName  = _Level.Level, 
                             FacultyId = _Votes.FacultyId,
                             DepartmentId = _Votes.DepartmentId,
                             StartDate = _Votes.StartDate,

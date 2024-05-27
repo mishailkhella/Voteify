@@ -38,9 +38,9 @@ var tblVotesDataTable = function () {
                 }
             },
             { "data": "FacultyName", "name": "FacultyName" },
-            { "data": "DepartmentId", "name": "DepartmentId" },
-            { "data": "SectionId", "name": "SectionId" },
-            { "data": "LevelId", "name": "LevelId" },
+            { "data": "DepartmentName", "name": "DepartmentName" },
+            { "data": "SectionNeme", "name": "SectionName" },
+            { "data": "Level", "name": "Level" },
            
 
           
