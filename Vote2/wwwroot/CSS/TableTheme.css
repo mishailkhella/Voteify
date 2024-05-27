@@ -1,0 +1,15 @@
+﻿.CustomTablegray thead {
+    background-color: #000;
+    color: #fff;
+}
+.CustomTablegray th {
+    background-color: #000;
+    color: #fff;
+    border: solid 1px #ffcd9d;
+    text-align: center;
+}
+
+.CustomTablegray td {
+    border: solid 1px #000;
+    text-align: center;
+}
