@@ -162,13 +162,6 @@ namespace Vote2.Migrations
                     b.Property<long>("QuestionTypeId")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("QuestionTypeName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("UserType")
-                        .HasColumnType("bigint");
-
                     b.Property<long>("VoteId")
                         .HasColumnType("bigint");
 
@@ -363,8 +356,14 @@ namespace Vote2.Migrations
                     b.Property<long>("DepartmentId")
                         .HasColumnType("bigint");
 
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<long>("FacultyId")
                         .HasColumnType("bigint");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<long>("LevelId")
                         .HasColumnType("bigint");
@@ -375,14 +374,11 @@ namespace Vote2.Migrations
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("QuestionId")
-                        .HasColumnType("bigint");
-
                     b.Property<long>("SectionId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("UserId")
-                        .HasColumnType("bigint");
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("VoteName")
                         .IsRequired()

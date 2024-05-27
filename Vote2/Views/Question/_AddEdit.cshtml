@@ -16,8 +16,8 @@
 
 
                 <div class="form-group directiondiv">
-                    <label class="col-form-label">Question</label><span style="color:red;">*</span>
-                    <select id="QuestionId" asp-for="QuestionId" asp-items="@ViewBag.GetddlQuestions" style="width: 100%;" class="" required>
+                    <label class="col-form-label">Votes</label><span style="color:red;">*</span>
+                    <select id="VoteId" asp-for="VoteId" asp-items="@ViewBag.GetddlVotes" style="width: 100%;" class="" required>
                         <option disabled selected data-key="---select---">--- SELECT ---</option>
                     </select>
                     <span asp-validation-for="QuestionId" class="text-danger"></span>
@@ -25,8 +25,8 @@
 
                 <div class="form-group row directiondiv" >
                     <label>Add Your Question</label>
-                    <div class="col-md-3">
-                        <input asp-for="QuestionId" type="text" id="QuestionId" style="width:100%;" />
+                    <div class="col-md-12">
+                        <input asp-for="QuestionName" type="text" id="QuestionName" style="width:100%;" />
                     </div>
                 </div>
 

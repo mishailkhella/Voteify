@@ -74,9 +74,10 @@ namespace Vote2.Controllers
         public async Task<IActionResult> AddEdit(int id)
         {
             QuestionViewModel vm = new();
-
-            ViewBag.GetddlQuestions = new SelectList(_Context.Questions.ToList(), "Id", "QuestionName");
-            ViewBag.GetddlQuestionType = new SelectList(_iCommon.GetddlQuestionType().ToList(), "QuestionTypeId", "QuestionTypeName");
+            var votes = _Context.Votes.ToList();
+            ViewBag.GetddlVotes = new SelectList(votes, "Id", "VoteName");
+            var Type =_Context.Questionstype.ToList();
+            ViewBag.GetddlQuestionType = new SelectList(Type, "Id", "QuestionTypeName");
             if (id > 0)
             {
                 vm = await _Context.Questions.FindAsync(vm.Id);
@@ -115,7 +116,7 @@ namespace Vote2.Controllers
                         _question.Id = vm.Id;
                         _question.QuestionName = vm.QuestionName;
                         _question.QuestionTypeId = vm.QuestionTypeId;
-                     
+                        _question.VoteId = vm.VoteId;
                         _question.CreatedBy = HttpContext.Session.GetString("LoginMail");
                         _question.CreatedDate = DateTime.Now;
                         _Context.Questions.Add(_question);

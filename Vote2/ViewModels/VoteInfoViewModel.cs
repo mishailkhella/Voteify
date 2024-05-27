@@ -6,8 +6,6 @@ namespace Vote2.ViewModels
     public class VoteInfoViewModel : EntityBase
     {
         public Int64 Id { get; set; }
-        public Int64 QuestionId { get; set; }
-        public Int64 UserId { get; set; }
         [Required]
         public Int64 FacultyId { get; set; }
         [Required]
@@ -15,21 +13,25 @@ namespace Vote2.ViewModels
         [Required]
         public Int64 SectionId { get; set; }
         public Int64 LevelId { get; set; }
-        public string VoteName { get; set; } 
+        public string VoteName { get; set; }
+        public bool IsActive { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
 
- 
+
         public static implicit operator VoteInfoViewModel(VoteInfo Votes)
         {
             return new VoteInfoViewModel
             {
                 Id = Votes.Id,
-                UserId = Votes.UserId,    
-                QuestionId = Votes.QuestionId,
+                IsActive = Votes.IsActive,
                 FacultyId = Votes.FacultyId,
                 LevelId = Votes.LevelId,
                 DepartmentId = Votes.DepartmentId,
                 SectionId = Votes.SectionId,
                 VoteName = Votes.VoteName,
+                StartDate = Votes.StartDate,
+                EndDate = Votes.EndDate,
                 ModifiedBy = Votes.ModifiedBy,
                 CreatedBy = Votes.CreatedBy,
                 ModifiedDate = Votes.ModifiedDate,
@@ -45,13 +47,14 @@ namespace Vote2.ViewModels
             {
                 
                 Id = vm.Id,
-                UserId = vm.UserId,
-                QuestionId = vm.QuestionId,
-                FacultyId=vm.FacultyId,
+                IsActive = vm.IsActive,
+                FacultyId =vm.FacultyId,
                 LevelId =vm.LevelId,
                 DepartmentId = vm.DepartmentId,
                 SectionId = vm.SectionId,
                 VoteName = vm.VoteName, 
+                StartDate = vm.StartDate,
+                EndDate = vm.EndDate,
                 ModifiedBy = vm.ModifiedBy,
                 CreatedBy = vm.CreatedBy,
                 ModifiedDate = vm.ModifiedDate,

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kmtv7Jkv8Zq91KoMwoWyzymZ9eBS49/KXjD9yDt48YI=",
+  "Hash": "wovtOema1+XDi1tIbvUKO4N8RVn0BKaWHkNYUjqa0SQ=",
   "Source": "Vote2",
   "BasePath": "_content/Vote2",
   "Mode": "Default",
@@ -236,6 +236,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Js\\Question\\Vote_Datatable.js"
+    },
+    {
+      "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\QuestionAnswer\\QuestionAnswer_CRUD.js",
+      "SourceId": "Vote2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\",
+      "BasePath": "_content/Vote2",
+      "RelativePath": "Js/QuestionAnswer/QuestionAnswer_CRUD.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Js\\QuestionAnswer\\QuestionAnswer_CRUD.js"
+    },
+    {
+      "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\QuestionAnswer\\Vote_Datatable.js",
+      "SourceId": "Vote2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\",
+      "BasePath": "_content/Vote2",
+      "RelativePath": "Js/QuestionAnswer/Vote_Datatable.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Js\\QuestionAnswer\\Vote_Datatable.js"
     },
     {
       "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\sb-admin-2.js",

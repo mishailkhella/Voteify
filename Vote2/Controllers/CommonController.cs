@@ -27,5 +27,10 @@ namespace Vote2.Controllers
             var jsonResualtViewModel = await _iCommon.GetddlSectionsByDepartementId(DepartementId);
             return new JsonResult(jsonResualtViewModel);
         }
+        public async Task<JsonResult> QuestionsByVoteId(Int64 VoteId)
+        {
+            var jsonResualtViewModel = await _iCommon.GetddlQuestionsByVoteId(VoteId);
+            return new JsonResult(jsonResualtViewModel);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Vote2.IService;
+using Vote2.Models;
 using Vote2.ViewModels;
 
 namespace Vote2.Service
@@ -41,7 +42,7 @@ namespace Vote2.Service
         public List<ItemDropdownListViewModel> GetddlQuestions()
         {
             List<ItemDropdownListViewModel> itemDropdownListViewModel = new List<ItemDropdownListViewModel>();
-            var GetQuestion = _Context.Questions.ToList();
+            var GetQuestion = _Context.Questions.Where(c=>c.QuestionTypeId==2 && c.Cancelled == false).ToList();
 
             itemDropdownListViewModel = GetQuestion.Select(x => new ItemDropdownListViewModel()
             {
@@ -65,6 +66,7 @@ namespace Vote2.Service
             return itemDropdownListViewModel;
         }
 
+  
         public async Task<List<ItemDropdownListViewModel>> GetddlDepartementsByFacultyId(Int64 FacultyId)
         {
             List<ItemDropdownListViewModel> itemDropdownListViewModel = new List<ItemDropdownListViewModel>();
@@ -74,6 +76,19 @@ namespace Vote2.Service
             {
                 Id = x.Id,
                 Name = x.Name,
+            }).ToList();
+
+            return itemDropdownListViewModel;
+        }
+        public async Task<List<ItemDropdownListViewModel>> GetddlQuestionsByVoteId(Int64 VoteId)
+        {
+            List<ItemDropdownListViewModel> itemDropdownListViewModel = new List<ItemDropdownListViewModel>();
+            var Question = await _Context.Questions.Where(i => i.VoteId == VoteId).ToListAsync();
+
+            itemDropdownListViewModel = Question.Select(x => new ItemDropdownListViewModel()
+            {
+                Id = x.Id,
+                Name = x.QuestionName,
             }).ToList();
 
             return itemDropdownListViewModel;
@@ -96,15 +111,19 @@ namespace Vote2.Service
             try
             {
                 return (from _Votes in _Context.Votes
-                        where _Votes.Cancelled == false
+                        join type in _Context.Questionstype
+                        on _Votes.Id equals type.Id
+                        where _Votes.Cancelled == false 
                         select new VoteInfoViewModel
                         {
                             Id = _Votes.Id,
                             FacultyId = _Votes.FacultyId,
                             DepartmentId = _Votes.DepartmentId,
-                            UserId = _Votes.UserId,
-                            QuestionId = _Votes.QuestionId,
-                            LevelId = _Votes.LevelId,              
+                            StartDate = _Votes.StartDate,
+                            EndDate = _Votes.EndDate,
+                            IsActive = _Votes.IsActive,
+                            LevelId = _Votes.LevelId,
+                            VoteName = _Votes.VoteName,
                             SectionId = _Votes.SectionId,
                             ModifiedBy = _Votes.ModifiedBy,
                             CreatedBy = _Votes.CreatedBy,
@@ -127,7 +146,7 @@ namespace Vote2.Service
                         select new QuestionViewModel
                         {
                             Id = _Question.Id,
-                            VotedId = _Question.VoteId,
+                            VoteId = _Question.VoteId,
                             QuestionTypeId = _Question.QuestionTypeId,
                             QuestionName= _Question.QuestionName,
                             ModifiedBy = _Question.ModifiedBy,
@@ -142,6 +161,30 @@ namespace Vote2.Service
                 throw ex;
             }
         }
-    
+        public IQueryable<QuestionAnswerViewModel> GetAllQuestionAnswer()
+        {
+            try
+            {
+                return (from _QuestionAnswer in _Context.QuestionAnswer
+                        where _QuestionAnswer.Cancelled == false
+                        select new QuestionAnswerViewModel
+                        {
+                            Id = _QuestionAnswer.Id,
+                            VoteId = _QuestionAnswer.VoteId,
+                            AnswerName = _QuestionAnswer.AnswerName,
+                            QuestionId = _QuestionAnswer.QuestionId,
+                            ModifiedBy = _QuestionAnswer.ModifiedBy,
+                            CreatedBy = _QuestionAnswer.CreatedBy,
+                            ModifiedDate = _QuestionAnswer.ModifiedDate,
+                            CreatedDate = _QuestionAnswer.CreatedDate,
+                            Cancelled = _QuestionAnswer.Cancelled,
+                        }).OrderByDescending(x => x.Id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

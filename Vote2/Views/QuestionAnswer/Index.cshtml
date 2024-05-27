@@ -1,0 +1,56 @@
+﻿<div class="wrapper">
+    <div class="panel panel-hash">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-5">
+                    <button type="button" onclick="AddEdit(0)" class="btn btn-success">Add Vote</button>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="pull-right"><b>&nbsp;Votes List</b></h5>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel-body scroll panel-height">
+            <table id="tblQuestions" class="CustomTablegray" style="width:100%">
+                <thead>
+                    <tr>
+                        <th data-key="type">Id</th>
+                        <th data-key="type">Question Name</th>
+                        <th data-key="type">Your Question</th>
+                        <th data-key="type">Question Type </th>
+                        <th data-key="createddate">Created Date</th>
+                        <th data-key="createdby">Created By</th>
+
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+<style>
+    .panel-heading {
+        padding: 0px 0px 0px 5px;
+    }
+
+    .panel-body {
+        padding: 5px;
+    }
+
+    .h4 {
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+
+    #tblVotes th {
+        text-align: center;
+    }
+</style>
+
+<script src="~/Js/QuestionAnswer/QuestionAnswer_CRUD.js"></script>
+@*<script src="~/Js/Vote/Vote_Datatable.js"></script>*@
+@*<script src="~/js/QuestionType/QuestionType_Datatable.js"></script>*@

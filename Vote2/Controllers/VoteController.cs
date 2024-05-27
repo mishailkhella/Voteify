@@ -54,9 +54,10 @@ namespace Vote2.Controllers
                     _GetGridItem = _GetGridItem.Where(obj => obj.Id.ToString().Contains(searchValue)
                     || obj.Id.ToString().ToLower().Contains(searchValue)
                     || obj.LevelId.ToString().ToLower().Contains(searchValue)
-                    || obj.QuestionId.ToString().ToLower().Contains(searchValue)
+                    || obj.StartDate.ToString().ToLower().Contains(searchValue)
+                    || obj.EndDate.ToString().ToLower().Contains(searchValue)
                     || obj.SectionId.ToString().ToLower().Contains(searchValue)
-                    || obj.UserId.ToString().ToLower().Contains(searchValue)
+                    
                     || obj.ModifiedDate.ToString().ToLower().Contains(searchValue)
                     || obj.ModifiedBy.ToString().ToLower().Contains(searchValue)
                     || obj.CreatedDate.ToString().Contains(searchValue)
@@ -102,10 +103,9 @@ namespace Vote2.Controllers
                     {
                         _Vote = await _Context.Votes.FindAsync(vm.Id);
 
-                        vm.CreatedDate = _Vote.CreatedDate;
-                        vm.CreatedBy = _Vote.CreatedBy;
                         vm.ModifiedDate = DateTime.Now;
-                        vm.ModifiedBy =  HttpContext.Session.GetString("LoginMail");
+                        vm.ModifiedBy = HttpContext.Session.GetString("LoginMail");
+
                         _Context.Entry(_Vote).CurrentValues.SetValues(vm);
                         await _Context.SaveChangesAsync();
                         return new JsonResult(_Vote);
@@ -119,8 +119,9 @@ namespace Vote2.Controllers
                         _Vote.SectionId = vm.SectionId;
                         _Vote.LevelId = vm.LevelId;
                         _Vote.FacultyId = vm.FacultyId;
-                        _Vote.QuestionId = vm.QuestionId;
-                        _Vote.UserId = 2;
+                        _Vote.IsActive = vm.IsActive;
+                        _Vote.StartDate = vm.StartDate;
+                        _Vote.EndDate = vm.EndDate;
                         _Vote.CreatedBy = HttpContext.Session.GetString("LoginMail");
                         _Vote.CreatedDate = DateTime.Now;
                         _Context.Votes.Add(_Vote);

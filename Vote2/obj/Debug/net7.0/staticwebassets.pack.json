@@ -21,6 +21,14 @@
       "PackagePath": "staticwebassets\\Js\\LoginForm.js"
     },
     {
+      "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\QuestionAnswer\\QuestionAnswer_CRUD.js",
+      "PackagePath": "staticwebassets\\Js\\QuestionAnswer\\QuestionAnswer_CRUD.js"
+    },
+    {
+      "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\QuestionAnswer\\Vote_Datatable.js",
+      "PackagePath": "staticwebassets\\Js\\QuestionAnswer\\Vote_Datatable.js"
+    },
+    {
       "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\Question\\Question_CRUD.js",
       "PackagePath": "staticwebassets\\Js\\Question\\Question_CRUD.js"
     },
