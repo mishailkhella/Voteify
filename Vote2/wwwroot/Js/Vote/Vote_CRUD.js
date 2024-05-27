@@ -38,9 +38,9 @@ var Save = function () {
                 $('#tblBook').DataTable().ajax.reload();
             });
         },
-        error: function (errormessage) {
-            SwalSimpleAlert(errormessage.responseText, "warning");
-        }
+        //error: function (errormessage) {
+        //    SwalSimpleAlert(errormessage.responseText, "warning");
+        //}
     });
 }
 var Delete = function (id) {

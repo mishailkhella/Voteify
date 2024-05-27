@@ -1,12 +1,12 @@
 $(document).ready(function () {
 
     document.title = 'Vote';
-    tblQuestionAnserDataTable();
+    tblQuestionAnswerDataTable();
 
 });
-var tblQuestionAnserDataTable = function () {
+var tblQuestionAnswerDataTable = function () {
 
-    $("#tblQuestionAnser").DataTable({
+    $("#tblQuestionAnswer").DataTable({
         paging: true,
         select: true,
         "order": [[0, "desc"]],
@@ -25,7 +25,7 @@ var tblQuestionAnserDataTable = function () {
         "stateSave": true,
 
         "ajax": {
-            "url": "/QuestionAnser/GetDataTabelData",
+            "url": "/QuestionAnswer/GetDataTabelData",
             "type": "POST",
             "datatype": "json"
         },
