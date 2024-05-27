@@ -45,7 +45,7 @@ namespace Vote2.Controllers
                 {
 
                     _GetGridItem = _GetGridItem.OrderBy(sortColumn + " " + sortColumnAscDesc);
-
+                     
                 }
                 //Search
                 if (!string.IsNullOrEmpty(searchValue))
@@ -74,8 +74,10 @@ namespace Vote2.Controllers
         [HttpGet]
         public async Task<IActionResult> AddEdit(int id)
         {
-            VoteInfoViewModel vm = new();
+            VoteInfoViewModel vm = new(); 
             ViewBag.GetddlFaculties = new SelectList(_iCommon.GetddlFaculties().ToList(), "Id", "Name");
+            ViewBag.GetddlLevels = new SelectList(_iCommon.GetddlLevels().ToList(), "Id", "Name");
+
             if (id > 0)
             {
                 vm = await _Context.Votes.FindAsync(vm.Id);
@@ -112,11 +114,13 @@ namespace Vote2.Controllers
                     {
 
                         _Vote.Id = vm.Id;
+                        _Vote.VoteName = vm.VoteName;
                         _Vote.DepartmentId = vm.DepartmentId;
                         _Vote.SectionId = vm.SectionId;
                         _Vote.LevelId = vm.LevelId;
                         _Vote.FacultyId = vm.FacultyId;
                         _Vote.QuestionId = vm.QuestionId;
+                        _Vote.UserId = 2;
                         _Vote.CreatedBy = HttpContext.Session.GetString("LoginMail");
                         _Vote.CreatedDate = DateTime.Now;
                         _Context.Votes.Add(_Vote);

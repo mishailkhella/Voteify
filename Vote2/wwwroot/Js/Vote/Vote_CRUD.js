@@ -1,6 +1,6 @@
 ﻿
 var AddEdit = function (id) {
-    debugger
+
     var url = "/Vote/AddEdit?id=" + id;
 
     if (id > 0) {
@@ -16,10 +16,10 @@ var AddEdit = function (id) {
 
 var Save = function () {
     debugger
-    if (!$("#frmVote").valid()) {
-        return;
-    }
-
+    //if (!$("#frmVote").valid()) {
+    //    return;
+    //}
+  
     var _frmVote = $("#frmVote").serialize();
     $("#btnSave").val("Please Wait");
     $('#btnSave').attr('disabled', 'disabled');

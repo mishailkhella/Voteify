@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CUGTalQ0eO/ZVLaRHf+69zPdKphQvP7oR9iffV/RMrc=",
+  "Hash": "kmtv7Jkv8Zq91KoMwoWyzymZ9eBS49/KXjD9yDt48YI=",
   "Source": "Vote2",
   "BasePath": "_content/Vote2",
   "Mode": "Default",
@@ -204,6 +204,40 @@
       "OriginalItemSpec": "wwwroot\\Js\\LoginForm.js"
     },
     {
+      "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\Question\\Question_CRUD.js",
+      "SourceId": "Vote2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\",
+      "BasePath": "_content/Vote2",
+      "RelativePath": "Js/Question/Question_CRUD.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Js\\Question\\Question_CRUD.js"
+    },
+    {
+      "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\Question\\Vote_Datatable.js",
+      "SourceId": "Vote2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\",
+      "BasePath": "_content/Vote2",
+      "RelativePath": "Js/Question/Vote_Datatable.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Js\\Question\\Vote_Datatable.js"
+    },
+    {
       "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\sb-admin-2.js",
       "SourceId": "Vote2",
       "SourceType": "Discovered",
@@ -270,6 +304,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Js\\Vote\\Vote_CRUD.js"
+    },
+    {
+      "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\Vote\\Vote_Datatable.js",
+      "SourceId": "Vote2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\",
+      "BasePath": "_content/Vote2",
+      "RelativePath": "Js/Vote/Vote_Datatable.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Js\\Vote\\Vote_Datatable.js"
     },
     {
       "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Layout\\bootstrap\\js\\bootstrap.bundle.js",

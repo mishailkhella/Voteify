@@ -6,5 +6,7 @@
         public string QuestionName { get; set; }
         public Int64 UserType { get; set; } 
         public Int64 QuestionTypeId  { get; set;}
+        public string QuestionTypeName { get; set; }
+        public Int64  VoteId { get; set; }
     }
 }

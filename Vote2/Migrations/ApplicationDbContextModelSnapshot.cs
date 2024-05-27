@@ -37,14 +37,12 @@ namespace Vote2.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ModifiedDate")
@@ -146,14 +144,12 @@ namespace Vote2.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ModifiedDate")
@@ -166,7 +162,14 @@ namespace Vote2.Migrations
                     b.Property<long>("QuestionTypeId")
                         .HasColumnType("bigint");
 
+                    b.Property<string>("QuestionTypeName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<long>("UserType")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("VoteId")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
@@ -190,14 +193,12 @@ namespace Vote2.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ModifiedDate")
@@ -243,7 +244,6 @@ namespace Vote2.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
@@ -256,7 +256,6 @@ namespace Vote2.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ModifiedDate")
@@ -283,7 +282,6 @@ namespace Vote2.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
@@ -300,7 +298,6 @@ namespace Vote2.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ModifiedDate")
@@ -358,7 +355,6 @@ namespace Vote2.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
@@ -374,7 +370,6 @@ namespace Vote2.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ModifiedDate")
@@ -388,6 +383,10 @@ namespace Vote2.Migrations
 
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
+
+                    b.Property<string>("VoteName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

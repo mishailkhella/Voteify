@@ -47,12 +47,12 @@
 
                 <div class="form-group directiondiv">
                     <label class="col-form-label">Level</label>
-                    <select id="LevelId" asp-for="LevelId" asp-items="@ViewBag.DDLLevels" style="width: 100%;" class="" required>
+                    <select id="LevelId" asp-for="LevelId" asp-items="@ViewBag.GetddlLevels" style="width: 100%;" class="" required>
                         <option disabled selected data-key="---select---">--- SELECT ---</option>
                     </select>
                     <span asp-validation-for="LevelId"></span>
                 </div>
-
+            
 
 
                 @*  <div class="form-group directiondiv">
@@ -110,3 +110,70 @@
         justify-content: center;
     }
 </style>
+
+<script>
+    $(document).ready(function () {
+        $("#FacultyId").select2();
+        $("#DepartmentId").select2();
+        $("#SectionId").select2();
+        $("#LevelId").select2();
+    });
+
+    
+
+    $(document).ready(function () {
+        debugger
+        $('#FacultyId').change(function () {
+            var _FacultyId = $("#FacultyId").val();
+            $.ajax({
+                type: "GET",
+                url: "/Common/GetDepartementsByFacultyId?FacultyId=" + _FacultyId,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    $('#DepartmentId').empty();
+                    $('#SectionId').empty();
+                    $("#DepartmentId").append("<option disabled selected data-key=' select ' > SELECT </option>");
+                    for (var i = 0; i < data.length; i++) {
+                        var _DepartmentId = document.getElementById("DepartmentId");
+                        var _option = document.createElement("option");
+                        _option.text = data[i].Name;
+                        _option.value = data[i].Id;
+                        _DepartmentId.add(_option);
+                    }
+                },
+                error: function (errormessage) {
+                    SwalSimpleAlert(errormessage.responseText, "warning");
+                }
+            });
+        });
+    });
+
+
+    $(document).ready(function () {
+        $('#DepartmentId').change(function () {
+            var _DepartmentId = $("#DepartmentId").val();
+            $.ajax({
+                type: "GET",
+                url: "/Common/GetSectionsByDepartementId?DepartementId=" + _DepartmentId,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    $('#SectionId').empty();
+                    $("#SectionId").append("<option disabled selected data-key=' select ' > SELECT </option>");
+                    for (var i = 0; i < data.length; i++) {
+                        var _SectionId = document.getElementById("SectionId");
+                        var _option = document.createElement("option");
+                        _option.text = data[i].Name;
+                        _option.value = data[i].Id;
+                        _SectionId.add(_option);
+                    }
+                },
+                error: function (errormessage) {
+                    SwalSimpleAlert(errormessage.responseText, "warning");
+                }
+            });
+        });
+    });
+
+</script>
