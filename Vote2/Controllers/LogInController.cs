@@ -50,6 +50,13 @@ namespace Vote2.Controllers
                     _users.UserTypeId = 2;
                     _Context.Users.Add(_users);
                     await _Context.SaveChangesAsync();
+
+                    Userslevels userslevels = new Userslevels();
+                    userslevels.UserId = _users.Id;
+                    userslevels.LevelId = vm.LevelId;
+                    _Context.UserLevels.Add(userslevels);
+                    await _Context.SaveChangesAsync();
+
                     jsonResualtViewModel.IsSuccess = true;
 
 
