@@ -71,7 +71,7 @@ namespace Vote2.Controllers
         [HttpGet]
         public async Task<IActionResult> Vote(Int64 VoteId, Int64 UserId)
         {
-            
+            return View();
         }
         [HttpPost]
         public async Task<IActionResult> AddEdit(VoteInfoViewModel vm)
