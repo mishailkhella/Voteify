@@ -73,8 +73,4 @@ var Delete = function (id) {
             });
         }
     });
-
-
-
-
 };

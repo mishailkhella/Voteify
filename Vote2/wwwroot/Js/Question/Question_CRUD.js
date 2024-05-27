@@ -43,3 +43,32 @@ var Save = function () {
         }
     });
 }
+var Delete = function (id) {
+    Swal.fire({
+        title: 'Do you want to delete this Vote?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                type: "POST",
+                url: "/Question/Delete?id=" + id,
+                success: function (result) {
+                    var message = "Vote has been deleted successfully.";
+                    Swal.fire({
+                        title: message,
+                        icon: 'info',
+                    });
+
+                    var table = $('#tblQuestion').DataTable();
+                    table.clear();
+                    table.destroy();
+                    tblVotesDataTable()
+                }
+            });
+        }
+    });
+};

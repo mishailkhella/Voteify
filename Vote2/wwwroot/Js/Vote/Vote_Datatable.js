@@ -37,6 +37,7 @@ var tblVotesDataTable = function () {
                     return "<a href='#' class='fa fa-eye' onclick=Details('" + row.Id + "');>" + row.Id + "</a>";
                 }
             },
+            { "data": "VoteName", "name": "VoteName" },
             { "data": "FacultyName", "name": "FacultyName" },
             { "data": "DepartmentName", "name": "DepartmentName" },
             { "data": "SectionName", "name": "SectionName" },
@@ -81,7 +82,7 @@ var tblVotesDataTable = function () {
         ],
 
         'columnDefs': [{
-            'targets': [9, 10],
+            'targets': [10, 11],
             'orderable': false,
         }],
 

@@ -508,14 +508,8 @@ G:\Misho\Voteify\Vote2\obj\Debug\net7.0\refint\Vote2.dll
 G:\Misho\Voteify\Vote2\obj\Debug\net7.0\Vote2.pdb
 G:\Misho\Voteify\Vote2\obj\Debug\net7.0\Vote2.genruntimeconfig.cache
 G:\Misho\Voteify\Vote2\obj\Debug\net7.0\ref\Vote2.dll
-C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.csproj.AssemblyReference.cache
-C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.GeneratedMSBuildEditorConfig.editorconfig
-C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.AssemblyInfoInputs.cache
-C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.AssemblyInfo.cs
-C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.csproj.CoreCompileInputs.cache
-C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.MvcApplicationPartsAssemblyInfo.cache
-C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.RazorAssemblyInfo.cache
-C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.RazorAssemblyInfo.cs
+G:\Misho\Voteify\Vote2\bin\Debug\net7.0\DatatablesParser.dll
+G:\Misho\Voteify\Vote2\bin\Debug\net7.0\System.Linq.Dynamic.Core.dll
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\appsettings.Development.json
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\appsettings.json
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\Content\vendor\fontawesome-free\package.json
@@ -528,6 +522,7 @@ C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\Vote2.dll
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\Vote2.pdb
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\Azure.Core.dll
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\Azure.Identity.dll
+C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\DatatablesParser.dll
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\Humanizer.dll
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -748,6 +743,14 @@ C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.csproj.AssemblyReference.cache
+C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.AssemblyInfoInputs.cache
+C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.AssemblyInfo.cs
+C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.csproj.CoreCompileInputs.cache
+C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.MvcApplicationPartsAssemblyInfo.cache
+C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.RazorAssemblyInfo.cache
+C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.RazorAssemblyInfo.cs
 C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\staticwebassets\msbuild.Vote2.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\staticwebassets\msbuild.build.Vote2.props
 C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Vote2.props
@@ -764,6 +767,3 @@ C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\refint\Vote2.dll
 C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.pdb
 C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\Vote2.genruntimeconfig.cache
 C:\Voteify\Voteify\Vote2\obj\Debug\net7.0\ref\Vote2.dll
-C:\Voteify\Voteify\Vote2\bin\Debug\net7.0\DatatablesParser.dll
-G:\Misho\Voteify\Vote2\bin\Debug\net7.0\DatatablesParser.dll
-G:\Misho\Voteify\Vote2\bin\Debug\net7.0\System.Linq.Dynamic.Core.dll

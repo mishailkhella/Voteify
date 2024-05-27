@@ -100,6 +100,20 @@ namespace Vote2.Controllers
 
                     if (vm.Id > 0)
                     {
+
+
+                        Question Question = await _Context.Questions.Where(x => x.Cancelled == false).FirstOrDefaultAsync();
+                        if (Question == null)
+                        {
+                            return NotFound();
+                        }
+                        vm = Question;
+
+                        //ViewBag.Questions = new SelectList(await _iCommon.GetddlQuestions(), "Id", "QuestionName");
+                        //ViewBag.Sections = new SelectList(await _iCommon.GetddlSectionsByDepartementId(Vote.DepartmentId), "Id", "Name");
+
+                        return PartialView("_AddEdit", vm);
+
                         _question = await _Context.Questions.FindAsync(vm.Id);
 
                         vm.CreatedDate = _question.CreatedDate;
@@ -154,11 +168,11 @@ namespace Vote2.Controllers
 
                 jsonResualtViewModel.IsSuccess = false;
                 jsonResualtViewModel.Message = ex.Message;
-                return new JsonResult(jsonResualtViewModel); 
+                return new JsonResult(jsonResualtViewModel);
                 throw ex;
             }
 
-          
+
         }
 
     }

@@ -11,14 +11,14 @@ namespace Vote2.ViewModels
         public string  FacultyName { get; set; }
         public string  DepartmentName { get; set; }
         public string  SectionName { get; set; }
-        public string  LevelName { get; set; }
+        public string? LevelName { get; set; }
 
         [Required]
         public Int64 DepartmentId { get; set; }
         [Required]
         public Int64 SectionId { get; set; }
         public Int64 LevelId { get; set; }
-        public string VoteName { get; set; }
+        public string? VoteName { get; set; }
         public bool IsActive { get; set; }
         public DateTime StartDate { get; set; } = DateTime.Now;
         public DateTime EndDate { get; set; } = DateTime.Now;
