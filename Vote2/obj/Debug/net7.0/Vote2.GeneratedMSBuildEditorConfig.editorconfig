@@ -76,6 +76,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclZvdGVzXFZvdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Voteify/Voteify/Vote2/Views/VotesReport/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm90ZXNSZXBvcnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Voteify/Voteify/Vote2/Views/VotesReport/Report.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm90ZXNSZXBvcnRcUmVwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Voteify/Voteify/Vote2/Views/Vote/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm90ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
