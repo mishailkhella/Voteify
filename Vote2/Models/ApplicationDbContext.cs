@@ -1,4 +1,5 @@
-﻿using static System.Collections.Specialized.BitVector32;
+﻿using System.Collections.Generic;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Vote2.Models
 {
@@ -28,5 +29,6 @@ namespace Vote2.Models
         public DbSet<AnswerVote> AnswerVote { get; set; }
         public DbSet<VotedUsers> VotedUsers { get; set; }
         public DbSet<Userslevels> UserLevels { get; set; }
+        public DbSet<UserAnswersVote> UserAnswersVote { get; set; }
     }
 }
