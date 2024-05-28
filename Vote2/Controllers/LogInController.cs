@@ -32,11 +32,20 @@ namespace Vote2.Controllers
             try
             {
                 JsonResualtViewModel jsonResualtViewModel = new JsonResualtViewModel();
-                var IfExist = _Context.Users.Any(x => x.Email == vm.Email && x.Password == vm.Password);
-                if (IfExist)
+                var IfExist = await _Context.Users.Where(x => x.Email == vm.Email || x.PhoneNumber == vm.PhoneNumber).FirstOrDefaultAsync();
+                if (IfExist != null)
                 {
                     jsonResualtViewModel.IsSuccess = false;
-                    jsonResualtViewModel.Message = "This Account is Exist";
+                    if (IfExist.Email == vm.Email)
+                    {
+                        jsonResualtViewModel.Message = "This Email '" + vm.Email + "' is already in use";
+                    }
+
+                    if (IfExist.PhoneNumber == vm.PhoneNumber)
+                    {
+                        jsonResualtViewModel.Message = jsonResualtViewModel.Message +  " This Phone Number '" + vm.PhoneNumber + "' is already in use";
+                    }
+                    
                     return new JsonResult(jsonResualtViewModel);
                 }
                 else

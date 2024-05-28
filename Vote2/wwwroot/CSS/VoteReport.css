@@ -1,0 +1,225 @@
+﻿:root {
+    --white: #fff;
+    --main-color: #9B16FF;
+    
+    --color1: #20bf6b;
+    --color2: #EEEEEE;
+}
+
+
+.Margin {
+    margin: 20px 5px;
+}
+
+
+.Vote-Con .Question-Con {
+    margin: 20px 0;
+    padding: 15px;
+    row-gap: 15px;
+}
+.Vote-Con .Question {
+    gap: 10px;
+}
+.Vote-Con .Choices-Answer {
+    justify-content: space-evenly;
+}
+
+
+
+.NoOfVoters{
+    justify-content: center;
+}
+.TimeCounter {
+    justify-content: center;
+}
+
+
+.NoOfVoters .counter {
+    color: var(--main-color);
+    font-family: 'Hind', sans-serif;
+    text-align: center;
+    width: 190px;
+    height: 190px;
+    padding: 33px 12px;
+    border-radius: 50% 50%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+    .NoOfVoters .counter:before,
+    .NoOfVoters .counter:after,
+    .NoOfVoters .counter .counter-icon:before,
+    .NoOfVoters .counter .counter-icon:after,
+    .NoOfVoters .counter h3:before {
+        content: "";
+        position: absolute;
+    }
+
+    .NoOfVoters .counter:before,
+    .NoOfVoters .counter:after {
+        background: linear-gradient(to right,var(--main-color) 50%, transparent 50%);
+        width: 210px;
+        height: 210px;
+        border-radius: 100% 0 0 100%;
+        top: 0;
+        left: -10px;
+        z-index: -1;
+    }
+
+    .NoOfVoters .counter:after {
+        background: linear-gradient(to right, transparent 50%, var(--main-color) 50%);
+        border-radius: 0 100% 100% 0;
+        top: -15px;
+        left: auto;
+        right: -10px;
+        z-index: -2;
+    }
+
+    .NoOfVoters .counter .counter-icon {
+        font-size: 35px;
+        line-height: 35px;
+        margin: 0 0 15px;
+    }
+
+        .NoOfVoters .counter .counter-icon:before,
+        .NoOfVoters .counter .counter-icon:after {
+            background: var(--white);
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+            top: -13px;
+            left: 96px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.6);
+        }
+
+        .NoOfVoters .counter .counter-icon:after {
+            top: auto;
+            bottom: -15px;
+            left: 70px;
+        }
+
+    .NoOfVoters .counter h3 {
+        font-size: 20px;
+        font-weight: 500;
+        text-transform: capitalize;
+        margin: 0 0 10px;
+    }
+
+        .NoOfVoters .counter h3:before {
+            background: var(--white);
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            border-radius: 100% 100%;
+            transform: translateX(-50%) translateY(-50%);
+            top: 50%;
+            left: 50%;
+            z-index: -1;
+        }
+
+    .NoOfVoters .counter .counter-value {
+        font-size: 35px;
+        font-weight: 600;
+        display: block;
+    }
+
+    .NoOfVoters .counter.pink {
+        --main-color: #d11094;
+    }
+
+    .NoOfVoters .counter.red {
+        --main-color: #d82222;
+    }
+
+    .NoOfVoters .counter.blue {
+        --main-color: #344aba;
+    }
+
+@media screen and (max-width:990px) {
+    .NoOfVoters .counter {
+        margin-bottom: 80px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.Choices-Answer .counter {
+    color: var(--color1);
+    background: linear-gradient(to bottom, var(--color1) 19%, var(--color2) 19%,var(--color2) 84%,var(--color1) 0%);
+    font-family: 'Alegreya Sans', sans-serif;
+    text-align: center;
+    width: 210px;
+    height: 210px;
+    border-radius: 100px 100px;
+    padding: 46px 10px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+    .Choices-Answer .counter:before,
+    .Choices-Answer .counter:after {
+        content: "";
+        width: calc(100% - 15px);
+        height: calc(100% - 15px);
+        border-radius: 100px 100px;
+        border: 3px solid var(--color1);
+        transform: translateX(-50%) translateY(-50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+    }
+
+    .Choices-Answer .counter:after {
+        background: var(--white);
+        width: calc(100% - 35px);
+        height: calc(100% - 35px);
+        border: none;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .Choices-Answer .counter .counter-icon {
+        font-size: 30px;
+        line-height: 30px;
+        margin: 0 0 15px;
+    }
+
+    .Choices-Answer .counter h3 {
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: capitalize;
+        margin: 0 0 10px;
+    }
+
+    .Choices-Answer .counter .counter-value {
+        font-size: 33px;
+        font-weight: 600;
+        line-height: 33px;
+        display: block;
+    }
+
+    .Choices-Answer .counter.orange {
+        --color1: #EC721F;
+    }
+
+    .Choices-Answer .counter.pink {
+        --color1: #f368e0;
+    }
+
+    .Choices-Answer .counter.purple {
+        --color1: #8854d0;
+    }
+
+@media screen and (max-width:990px) {
+    .Choices-Answer .counter {
+        margin-bottom: 40px;
+    }
+}   
