@@ -9,10 +9,11 @@ namespace Vote2.ViewModels
        
         public Int64 VoteId { get; set; }
         public string? VoteName { get; set; }
+        public DateTime VoteEndDate { get; set; }
 
         public Int64 UserId { get; set; }
         public string? UserName { get; set; }
-        public DateTime VoteDate { get; set; } = DateTime.Now;
+        
 
         public List<VoteQuestionsViewModel> VoteQuestionsList { get; set; }
 
@@ -24,7 +25,7 @@ namespace Vote2.ViewModels
         public string QuestionName { get; set; }
         public Int64 QuestionTypeId { get; set; }
         public List<VoteQuestionsAnswersViewModel> VoteQuestionsAnswersList { get; set; }
-
+        public Int64 SelectedAnswerId { get; set; }
         public string? AnswerText { get; set; } //For Posting Text Answer
     }
 
@@ -33,7 +34,7 @@ namespace Vote2.ViewModels
         public Int64 Id { get; set;}
         public string AnswerName { get; set; }
 
-        public Int64 SelectedAnswerId { get; set; }
+        //public Int64 SelectedAnswerId { get; set; }
     }
 
 
