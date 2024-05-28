@@ -57,6 +57,12 @@ namespace Vote2.Controllers
 
             AllVotes = AllVotes.Where(i => i.EndDate >= DateTime.Now && i.StartDate <= DateTime.Now).ToList();
 
+            var AllVotedUsers = await _Context.VotedUsers.Where(i => i.UserId == user.Id).Select(x => x.VotedId).ToListAsync();
+            if (AllVotedUsers.Count > 0)
+            {
+                AllVotes = AllVotes.Where(i => !AllVotedUsers.Contains(i.Id)).ToList();
+            }
+
             viewModel.VotesViewModelList = AllVotes.Select(i => new VotesViewModel()
             {
                 Id = i.Id,
@@ -131,13 +137,14 @@ namespace Vote2.Controllers
                 {
                     UserAnswersVote userAnswers = new UserAnswersVote();
                     userAnswers.AnswerText = Question.AnswerText;
-                    //userAnswers. = Question.AnswerText;
-                    userAnswers.AnswerText = Question.AnswerText;
-                    userAnswers.AnswerText = Question.AnswerText;
+                    userAnswers.AnswerId = Question.SelectedAnswerId;
+                    userAnswers.VotedUserId = votedUsers.Id;
+                    userAnswers.VoteId = vm.VoteId;
+                    userAnswers.QuestionId = Question.Id;
+
+                    _Context.UserAnswersVote.Add(userAnswers);
+                    await _Context.SaveChangesAsync();
                 }
-                
-
-
 
                 return RedirectToAction("Index");
             }

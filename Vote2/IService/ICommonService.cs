@@ -15,5 +15,6 @@ namespace Vote2.IService
         IQueryable<QuestionViewModel> GetAllQuestion();
         IQueryable<QuestionAnswerViewModel> GetAllQuestionAnswer();
 
+        Task<UsersViewModel> GetUserData();
     }
 }

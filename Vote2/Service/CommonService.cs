@@ -8,10 +8,12 @@ namespace Vote2.Service
     public class CommonService : ICommonService
     {
         private readonly ApplicationDbContext _Context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public CommonService(ApplicationDbContext Context)
+        public CommonService(ApplicationDbContext Context, IHttpContextAccessor httpContextAccessor)
         {
             _Context = Context;
+            _httpContextAccessor = httpContextAccessor;
         }
         public List<ItemDropdownListViewModel> GetddlFaculties()
         {
@@ -207,5 +209,18 @@ namespace Vote2.Service
             }
         }
 
+
+        public async Task<UsersViewModel> GetUserData()
+        {
+            UsersViewModel usersView = new UsersViewModel();
+
+            var Email = _httpContextAccessor.HttpContext.Session.GetString("LoginMail");
+            if (Email != null)
+            {
+                var User = await _Context.Users.Where(i => i.Email == Email && i.Cancelled == false).FirstOrDefaultAsync();
+                usersView = User;
+            }
+            return usersView;
+        }
     }
 }

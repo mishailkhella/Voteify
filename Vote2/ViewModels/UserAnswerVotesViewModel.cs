@@ -33,8 +33,6 @@ namespace Vote2.ViewModels
     {
         public Int64 Id { get; set;}
         public string AnswerName { get; set; }
-
-        //public Int64 SelectedAnswerId { get; set; }
     }
 
 

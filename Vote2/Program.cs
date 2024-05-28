@@ -9,8 +9,10 @@ var connectionString = builder.Configuration.GetConnectionString(name: "DefaultC
     ?? throw new InvalidOperationException(message: "no connection String was found");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>options.UseSqlServer(connectionString));
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ICommonService, CommonService>();
+builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromDays(365); // Set the session timeout
