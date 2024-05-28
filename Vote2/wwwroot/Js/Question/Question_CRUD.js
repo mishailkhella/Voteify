@@ -4,10 +4,10 @@ var AddEdit = function (id) {
     var url = "/Question/AddEdit?id=" + id;
 
     if (id > 0) {
-        $('#titleExtraBigModal').html("Edit Book");
+        $('#titleExtraBigModal').html("Edit Question");
     }
     else {
-        $('#titleExtraBigModal').html("Add Book");
+        $('#titleExtraBigModal').html("Add Question");
 
 
     }
@@ -74,19 +74,19 @@ var Save = function () {
                 $("#btnSave").val("Save");
                 $('#btnSave').removeAttr('disabled');
 
-                // Assuming there is a table inside the form with id 'frmQuestionTable'
-                var questionTable = $('#frmQuestionTable').DataTable();
-                if (questionTable) {
-                    questionTable.ajax.reload(null, false);
-                }
+                //// Assuming there is a table inside the form with id 'frmQuestionTable'
+                //var questionTable = $('#frmQuestion').DataTable();
+                //if (questionTable) {
+                //    questionTable.ajax.reload(null, false);
+                //}
 
-                // Handling the '#tblVotes' DataTable
-                var votesTable = $('#tblVotes').DataTable();
-                if (votesTable) {
+                //// Handling the '#tblVotes' DataTable
+                var votesTable = $('#tblQuestion').DataTable();
+             
                     votesTable.clear();
                     votesTable.destroy();
-                    tblVotesDataTable();
-                }
+                    tblQuestionDataTable();
+                
             });
         },
         error: function () {
@@ -104,7 +104,7 @@ var Save = function () {
 
 // Ensure tblVotesDataTable() is defined to initialize #tblVotes DataTable
 function tblVotesDataTable() {
-    $('#tblVotes').DataTable({
+    $('#tblQuestion').DataTable({
         // DataTable configuration options
     });
 }

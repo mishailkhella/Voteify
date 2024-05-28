@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\CSS\\VoteCard.css"
     },
     {
+      "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\CSS\\VoteReport.css",
+      "PackagePath": "staticwebassets\\CSS\\VoteReport.css"
+    },
+    {
       "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\CSS\\sb-admin-2.css",
       "PackagePath": "staticwebassets\\CSS\\sb-admin-2.css"
     },
@@ -71,6 +75,10 @@
     {
       "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\Vote\\Vote_Datatable.js",
       "PackagePath": "staticwebassets\\Js\\Vote\\Vote_Datatable.js"
+    },
+    {
+      "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\VotesReport\\VotesReport_Datatable.js",
+      "PackagePath": "staticwebassets\\Js\\VotesReport\\VotesReport_Datatable.js"
     },
     {
       "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\Js\\demo\\chart-area-demo.js",

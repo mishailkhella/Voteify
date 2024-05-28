@@ -4,10 +4,10 @@ var AddEdit = function (id) {
     var url = "/Vote/AddEdit?id=" + id;
 
     if (id > 0) {
-        $('#titleExtraBigModal').html("Edit Book");
+        $('#titleExtraBigModal').html("Edit Vote");
     }
     else {
-        $('#titleExtraBigModal').html("Add Book");
+        $('#titleExtraBigModal').html("Add Vote");
 
 
     }
