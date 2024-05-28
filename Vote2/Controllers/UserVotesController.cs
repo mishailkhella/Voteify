@@ -130,7 +130,10 @@ namespace Vote2.Controllers
                 foreach (var Question in vm.VoteQuestionsList)
                 {
                     UserAnswersVote userAnswers = new UserAnswersVote();
-                    //userAnswers.AnswerAext
+                    userAnswers.AnswerText = Question.AnswerText;
+                    //userAnswers. = Question.AnswerText;
+                    userAnswers.AnswerText = Question.AnswerText;
+                    userAnswers.AnswerText = Question.AnswerText;
                 }
                 
 
