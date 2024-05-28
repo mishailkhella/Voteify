@@ -25,7 +25,7 @@ namespace Vote2.Controllers
             var Email = HttpContext.Session.GetString("LoginMail");
             if (Email == null)
                 return NotFound();
-            
+
             var user = await _Context.Users.Where(i => i.Email == Email && i.Cancelled == false).FirstOrDefaultAsync();
             if (user == null)
                 return NotFound();
@@ -83,6 +83,12 @@ namespace Vote2.Controllers
             {
                 return NoContent();
             }
+            viewModel.VoteName = Vote.VoteName;
+            viewModel.VoteId = Vote.Id;
+            viewModel.VoteEndDate = Vote.EndDate;
+
+            viewModel.UserId = User.Id;
+            viewModel.UserName = User.Name;
 
             var AllQuestions = await _Context.Questions.Where(i => i.VoteId == VoteId && i.Cancelled == false).ToListAsync();
             var AllAnswers = await _Context.QuestionAnswer.Where(i => i.Cancelled == false && i.VoteId == VoteId).ToListAsync();
@@ -109,51 +115,38 @@ namespace Vote2.Controllers
             return View(viewModel);
         }
         [HttpPost]
-        public async Task<IActionResult> AddEdit(VoteInfoViewModel vm)
+        public async Task<IActionResult> Vote(UserAnswerVotesViewModel vm)
         {
-            if (ModelState.IsValid)
+            try
             {
-                try
+                VotedUsers votedUsers = new VotedUsers();
+                votedUsers.UserId = vm.UserId;
+                votedUsers.VotedId = vm.VoteId;
+                votedUsers.VoteDate = DateTime.Now;
+
+                _Context.VotedUsers.Add(votedUsers);
+                await _Context.SaveChangesAsync();
+
+                foreach (var Question in vm.VoteQuestionsList)
                 {
-                    VoteInfo _Vote = new VoteInfo();
-
-                    if (vm.Id > 0)
-                    {
-                        _Vote = await _Context.Votes.FindAsync(vm.Id);
-
-                        vm.ModifiedDate = DateTime.Now;
-                        vm.ModifiedBy = HttpContext.Session.GetString("LoginMail");
-
-                        _Context.Entry(_Vote).CurrentValues.SetValues(vm);
-                        await _Context.SaveChangesAsync();
-                        return new JsonResult(_Vote);
-                    }
-                    else
-                    {
-
-                        _Vote.Id = vm.Id;
-                        _Vote.VoteName = vm.VoteName;
-                        _Vote.DepartmentId = vm.DepartmentId;
-                        _Vote.SectionId = vm.SectionId;
-                        _Vote.LevelId = vm.LevelId;
-                        _Vote.FacultyId = vm.FacultyId;
-                        _Vote.IsActive = vm.IsActive;
-                        _Vote.StartDate = vm.StartDate;
-                        _Vote.EndDate = vm.EndDate;
-                        _Vote.CreatedBy = HttpContext.Session.GetString("LoginMail");
-                        _Vote.CreatedDate = DateTime.Now;
-                        _Context.Votes.Add(_Vote);
-                        _Context.SaveChanges();
-                        return new JsonResult(vm);
-                    }
+                    UserAnswersVote userAnswers = new UserAnswersVote();
+                    userAnswers.AnswerText = Question.AnswerText;
+                    //userAnswers. = Question.AnswerText;
+                    userAnswers.AnswerText = Question.AnswerText;
+                    userAnswers.AnswerText = Question.AnswerText;
                 }
-                catch (Exception ex)
-                {
-                    return new JsonResult(ex.Message);
-                    throw ex;
-                }
+                
+
+
+
+                return RedirectToAction("Index");
             }
-            return View(vm);
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+                throw ex;
+            }
+
         }
 
 
