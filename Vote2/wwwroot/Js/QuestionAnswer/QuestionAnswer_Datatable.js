@@ -54,13 +54,15 @@ var tblQuestionAnswerDataTable = function () {
             },
             { "data": "CreatedBy", "name": "CreatedBy" },
             {
-                "data": "ModefiedDate",
-                "name": "ModifiedDate",
-                "autoWidth": true,
-                "render": function (data) {
+                data: "ModifiedDate",
+                name: "ModifiedDate",
+                autoWidth: true,
+                render: function (data) {
                     var date = new Date(data);
-                    var month = date.getMonth() + 1;
-                    return (date.getDate() + "/" + month.length > 1 ? month : month) + "/" + date.getFullYear();
+                    var day = date.getDate().toString().padStart(2, '0');
+                    var month = (date.getMonth() + 1).toString().padStart(2, '0');
+                    var year = date.getFullYear();
+                    return `${day}/${month}/${year}`;
                 }
             },
             { "data": "ModifiedBy", "name": "ModifiedBy" },

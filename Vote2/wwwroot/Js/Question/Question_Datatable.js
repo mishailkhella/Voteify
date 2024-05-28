@@ -52,8 +52,8 @@ var tblQuestionDataTable = function () {
             },
             { "data": "CreatedBy", "name": "CreatedBy" },
             {
-                data: "ModefiedDate",
-                name: "ModefiedDate",
+                data: "ModifiedDate",
+                name: "ModifiedDate",
                 autoWidth: true,
                 render: function (data) {
                     var date = new Date(data);
@@ -63,7 +63,7 @@ var tblQuestionDataTable = function () {
                     return `${day}/${month}/${year}`;
                 }
             },
-            { "data": "ModefiedBy", "name": "ModefiedBy" },
+            { "data": "ModifiedBy", "name": "ModifiedBy" },
             {
                 data: null, render: function (data, type, row) {
                     return "<a href='#' class='btn btn-info btn-xs' onclick=AddEdit('" + row.Id + "');>Edit</a>";

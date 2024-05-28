@@ -62,7 +62,7 @@ var tblVotesDataTable = function () {
                     return ( date.getDate() + "/" + month.length > 1 ? month : month) + "/" + date.getFullYear();
                 }
             },
-            { "data": "ModefiedBy", "name": "ModefiedBy" },
+            { "data": "ModifiedBy", "name": "ModifiedBy" },
 
             {
                 data: null, render: function (data, type, row) {

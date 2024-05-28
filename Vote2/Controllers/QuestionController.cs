@@ -89,7 +89,7 @@ namespace Vote2.Controllers
                     return NotFound();
                 }
                 vm = _Question;
-
+                ViewBag.Question = new SelectList(await _iCommon.GetddlQuestionsByVoteId(_Question.Id), "Id", "QuestionTypeName");
                 //ViewBag.Votes = new SelectList( _iCommon.GetAllVotes(), "Id", "VoteName");
                 return PartialView("_AddEdit", vm);
             }
@@ -109,17 +109,8 @@ namespace Vote2.Controllers
 
                     if (vm.Id > 0)
                     {
-                        Question _Question = await _Context.Questions.Where(x => x.Cancelled == false).FirstOrDefaultAsync();
-                        if (_Question == null)
-                        {
-                            return NotFound();
-                        }
-                        vm = _Question;
 
-                        //return PartialView("_AddEdit", vm);
-
-                        //_question = await _Context.Questions.FindAsync(vm.Id);
-
+                        _question = await _Context.Questions.FindAsync(vm.Id);
                         vm.CreatedDate = _question.CreatedDate;
                         vm.CreatedBy = _question.CreatedBy;
                         vm.ModifiedDate = DateTime.Now;
@@ -137,6 +128,8 @@ namespace Vote2.Controllers
                         _question.VoteId = vm.VoteId;
                         _question.CreatedBy = HttpContext.Session.GetString("LoginMail");
                         _question.CreatedDate = DateTime.Now;
+                        _question.ModifiedBy = HttpContext.Session.GetString("LoginMail");
+                        _question.ModifiedDate = DateTime.Now;
                         _Context.Questions.Add(_question);
                         _Context.SaveChanges();
                         return new JsonResult(vm);

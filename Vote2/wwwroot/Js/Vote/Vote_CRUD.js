@@ -26,7 +26,7 @@ var Save = function () {
         type: "POST",
         url: "/Vote/AddEdit",
         data: _frmVote,
-        success: function ("Updated Successfully") {
+        success: function (response) {
             Swal.fire({
                 title: "Updated Successfully",
                 icon: "success"

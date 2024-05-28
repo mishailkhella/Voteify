@@ -76,8 +76,8 @@ namespace Vote2.Controllers
             QuestionAnswerViewModel vm = new();
             var votes = _Context.Votes.Where(x=>x.Cancelled==false).ToList();
             ViewBag.GetddlVotes = new SelectList(votes, "Id", "VoteName");
-            var Question = _Context.Questions.Where(z=>z.Cancelled == false && z.QuestionTypeId == 2).ToList();
-            ViewBag.GetddlQuestions = new SelectList(Question, "Id", "QuestionName");
+            //var Question = _Context.Questions.Where(z=>z.Cancelled == false && z.QuestionTypeId == 2).ToList();
+            //ViewBag.GetddlQuestions = new SelectList(Question, "Id", "QuestionName");
             if (id > 0)
             {
                 QuestionAnswer _QuestionAnswer = await _Context.QuestionAnswer.Where(x => x.Cancelled == false && x.Id == id).FirstOrDefaultAsync();
@@ -128,7 +128,9 @@ namespace Vote2.Controllers
                         _questionAnswer.QuestionId = vm.QuestionId;
                         _questionAnswer.VoteId = vm.VoteId;
                         _questionAnswer.CreatedBy = HttpContext.Session.GetString("LoginMail");
+                        _questionAnswer.ModifiedBy = HttpContext.Session.GetString("LoginMail");
                         _questionAnswer.CreatedDate = DateTime.Now;
+                        _questionAnswer.ModifiedDate = DateTime.Now;
                         _Context.QuestionAnswer.Add(_questionAnswer);
                         _Context.SaveChanges();
                         return new JsonResult(vm);

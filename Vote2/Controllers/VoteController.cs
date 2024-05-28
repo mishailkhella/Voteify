@@ -130,7 +130,9 @@ namespace Vote2.Controllers
                         _Vote.StartDate = vm.StartDate;
                         _Vote.EndDate = vm.EndDate;
                         _Vote.CreatedBy = HttpContext.Session.GetString("LoginMail");
+                        _Vote.ModifiedBy = HttpContext.Session.GetString("LoginMail");
                         _Vote.CreatedDate = DateTime.Now;
+                        _Vote.ModifiedDate = DateTime.Now;
                         _Context.Votes.Add(_Vote);
                         _Context.SaveChanges();
                         return new JsonResult(vm);

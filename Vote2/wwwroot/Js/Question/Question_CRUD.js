@@ -27,9 +27,9 @@ var Save = function () {
         type: "POST",
         url: "/Question/AddEdit",
         data: _frmQuestion,
-        success: function (result) {
+        success: function (response) {
             Swal.fire({
-                title: result,
+                title: "Updated Successfully",
                 icon: "success"
             }).then(function () {
                 document.getElementById("btnClose").click();
