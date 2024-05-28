@@ -85,7 +85,7 @@ namespace Vote2.Service
         public async Task<List<ItemDropdownListViewModel>> GetddlQuestionsByVoteId(Int64 VoteId)
         {
             List<ItemDropdownListViewModel> itemDropdownListViewModel = new List<ItemDropdownListViewModel>();
-            var Question = await _Context.Questions.Where(i => i.VoteId == VoteId).ToListAsync();
+            var Question = await _Context.Questions.Where(i => i.VoteId == VoteId && i.Cancelled==false && i.QuestionTypeId == 2).ToListAsync();
 
             itemDropdownListViewModel = Question.Select(x => new ItemDropdownListViewModel()
             {

@@ -30,11 +30,11 @@ var tblVotesDataTable = function () {
 
 
         "columns": [
-            {
-                data: "Id", "name": "Id", render: function (data, type, row) {
-                    return "<a href='#' class='fa fa-eye' onclick=Details('" + row.Id + "');>" + row.Id + "</a>";
-                }
-            },
+            //{
+            //    data: "Id", "name": "Id", render: function (data, type, row) {
+            //        return "<a href='#' class='fa fa-eye' onclick=Details('" + row.Id + "');>" + row.Id + "</a>";
+            //    }
+            //},
             { "data": "VoteName", "name": "VoteName" },
             { "data": "FacultyName", "name": "FacultyName" },
             { "data": "DepartmentName", "name": "DepartmentName" },
@@ -77,12 +77,11 @@ var tblVotesDataTable = function () {
         ],
 
         'columnDefs': [{
-            'targets': [7, 8],
+            'targets': [6, 7],
             'orderable': false,
         }],
 
         "lengthMenu": [[20, 10, 15, 25, 50, 100, 200], [20, 10, 15, 25, 50, 100, 200]]
     });
-
 } 
 

@@ -1,6 +1,6 @@
 ﻿
 var AddEdit = function (id) {
-    debugger
+
     var url = "/QuestionAnswer/AddEdit?id=" + id;
 
     if (id > 0) {
@@ -15,7 +15,7 @@ var AddEdit = function (id) {
 };
 
 var Save = function () {
-    debugger
+ 
     //if (!$("#frmVote").valid()) {
     //    return;
     //}

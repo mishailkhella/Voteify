@@ -4,7 +4,9 @@ $(document).ready(function () {
     tblQuestionAnswerDataTable();
 
 });
-var tblQuestionAnswerDataTable = function () {
+var tblQuestionAnswerDataTable = function () 
+
+{
 
     $("#tblQuestionAnswer").DataTable({
         paging: true,
@@ -16,8 +18,6 @@ var tblQuestionAnswerDataTable = function () {
         buttons: [
             'pageLength',
         ],
-
-
         "processing": true,
         "serverSide": true,
         "filter": true, //Search Box
@@ -32,24 +32,26 @@ var tblQuestionAnswerDataTable = function () {
 
 
         "columns": [
-            {
-                data: "Id", "name": "Id", render: function (data, type, row) {
-                    return "<a href='#' class='fa fa-eye' onclick=Details('" + row.Id + "');>" + row.Id + "</a>";
-                }
-            },
+            //{
+            //    data: "Id", "name": "Id", render: function (data, type, row) {
+            //        return "<a href='#' class='fa fa-eye' onclick=Details('" + row.Id + "');>" + row.Id + "</a>";
+            //    }
+            //},
             { "data": "VoteName", "name": "VoteName" },
             { "data": "QuestionName", "name": "QuestionName" },
             { "data": "AnswerName", "name": "AnswerName" },
 
-            
+
             {
                 "data": "CreatedDate",
                 "name": "CreatedDate",
                 "autoWidth": true,
-                "render": function (data) {
+                render: function (data) {
                     var date = new Date(data);
-                    var month = date.getMonth() + 1;
-                    return (month.length > 1 ? month : month) + "/" + date.getDate() + "/" + date.getFullYear();
+                    var day = date.getDate().toString().padStart(2, '0');
+                    var month = (date.getMonth() + 1).toString().padStart(2, '0');
+                    var year = date.getFullYear();
+                    return `${day}/${month}/${year}`;
                 }
             },
             { "data": "CreatedBy", "name": "CreatedBy" },
@@ -66,6 +68,7 @@ var tblQuestionAnswerDataTable = function () {
                 }
             },
             { "data": "ModifiedBy", "name": "ModifiedBy" },
+
             {
                 data: null, render: function (data, type, row) {
                     return "<a href='#' class='btn btn-info btn-xs' onclick=AddEdit('" + row.Id + "');>Edit</a>";
@@ -77,12 +80,63 @@ var tblQuestionAnswerDataTable = function () {
                 }
             }
         ],
+
         'columnDefs': [{
-            'targets': [7, 8],
+            'targets': [6, 7],
             'orderable': false,
         }],
 
         "lengthMenu": [[20, 10, 15, 25, 50, 100, 200], [20, 10, 15, 25, 50, 100, 200]]
     });
-}
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -53,13 +53,15 @@ namespace Vote2.Controllers
                     searchValue = searchValue.ToLower();
                     _GetGridItem = _GetGridItem.Where(obj => obj.Id.ToString().Contains(searchValue)
                     || obj.Id.ToString().ToLower().Contains(searchValue)
-                    || obj.LevelId.ToString().ToLower().Contains(searchValue)
+                    || obj.LevelName.ToLower().Contains(searchValue)
+                    || obj.FacultyName.ToLower().Contains(searchValue)
+                    || obj.DepartmentName.ToLower().Contains(searchValue)
+                    || obj.SectionName.ToLower().Contains(searchValue)
+                    || obj.LevelName.ToLower().Contains(searchValue)
                     || obj.StartDate.ToString().ToLower().Contains(searchValue)
                     || obj.EndDate.ToString().ToLower().Contains(searchValue)
-                    || obj.SectionId.ToString().ToLower().Contains(searchValue)
-                    
                     || obj.ModifiedDate.ToString().ToLower().Contains(searchValue)
-                    || obj.ModifiedBy.ToString().ToLower().Contains(searchValue)
+                    || obj.ModifiedBy.ToLower().Contains(searchValue)
                     || obj.CreatedDate.ToString().Contains(searchValue)
                     || obj.CreatedBy.ToLower().Contains(searchValue));
                 }

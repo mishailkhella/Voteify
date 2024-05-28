@@ -13,15 +13,11 @@ var AddEdit = function (id) {
     }
     loadExtraBigModal(url);
 };
-var Save = function () {
-    debugger
-    //if (!$("#frmVote").valid()) {
-    //    return;
-    //}
-
+function Save() {
     var _frmVote = $("#frmVote").serialize();
     $("#btnSave").val("Please Wait");
     $('#btnSave').attr('disabled', 'disabled');
+
     $.ajax({
         type: "POST",
         url: "/Vote/AddEdit",
@@ -34,7 +30,7 @@ var Save = function () {
                 document.getElementById("btnClose").click();
                 $("#btnSave").val("Save");
                 $('#btnSave').removeAttr('disabled');
-                $('#tblVotes').DataTable().ajax.reload();
+                $('#tblVotes').DataTable().ajax.reload(null, false); // Use null and false to reset paging
             });
         },
         error: function () {
@@ -49,7 +45,6 @@ var Save = function () {
         }
     });
 }
-
 var Delete = function (id) {
     
 

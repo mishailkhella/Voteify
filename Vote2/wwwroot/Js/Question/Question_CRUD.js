@@ -14,15 +14,53 @@ var AddEdit = function (id) {
     loadExtraBigModal(url);
 };
 
+//function Save() {
+//    var _frmVote = $("#tblQuestion").serialize();
+//    $("#btnSave").val("Please Wait");
+//    $('#btnSave').attr('disabled', 'disabled');
+
+//    $.ajax({
+//        type: "POST",
+//        url: "/Vote/AddEdit",
+//        data: _frmVote,
+//        success: function (response) {
+//            Swal.fire({
+//                title: "Updated Successfully",
+//                icon: "success"
+//            }).then(function () {
+//                document.getElementById("btnClose").click();
+//                $("#btnSave").val("Save");
+//                $('#btnSave').removeAttr('disabled');
+//                $('#tblQuestion').DataTable().ajax.reload(null, false); // Use null and false to reset paging
+//            });
+//        },
+//        error: function () {
+//            Swal.fire({
+//                icon: "error",
+//                title: "Oops...",
+//                text: "Something went wrong!",
+//                footer: '<a href="#">Why do I have this issue?</a>'
+//            });
+//            $("#btnSave").val("Save");
+//            $('#btnSave').removeAttr('disabled');
+//        }
+//    });
+//}
+
+
+
+
 var Save = function () {
-    debugger
-    //if (!$("#frmVote").valid()) {
-    //    return;
-    //}
-  
+    debugger;
+    // Uncomment the validation if necessary
+    // if (!$("#frmVote").valid()) {
+    //     return;
+    // }
+
     var _frmQuestion = $("#frmQuestion").serialize();
     $("#btnSave").val("Please Wait");
     $('#btnSave').attr('disabled', 'disabled');
+
     $.ajax({
         type: "POST",
         url: "/Question/AddEdit",
@@ -35,14 +73,47 @@ var Save = function () {
                 document.getElementById("btnClose").click();
                 $("#btnSave").val("Save");
                 $('#btnSave').removeAttr('disabled');
-                $('#tblQuestions').DataTable().ajax.reload();
+
+                // Assuming there is a table inside the form with id 'frmQuestionTable'
+                var questionTable = $('#frmQuestionTable').DataTable();
+                if (questionTable) {
+                    questionTable.ajax.reload(null, false);
+                }
+
+                // Handling the '#tblVotes' DataTable
+                var votesTable = $('#tblVotes').DataTable();
+                if (votesTable) {
+                    votesTable.clear();
+                    votesTable.destroy();
+                    tblVotesDataTable();
+                }
             });
         },
-        error: function (errormessage) {
-            SwalSimpleAlert(errormessage.responseText, "warning");
+        error: function () {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+                footer: '<a href="#">Why do I have this issue?</a>'
+            });
+            $("#btnSave").val("Save");
+            $('#btnSave').removeAttr('disabled');
         }
     });
+};
+
+// Ensure tblVotesDataTable() is defined to initialize #tblVotes DataTable
+function tblVotesDataTable() {
+    $('#tblVotes').DataTable({
+        // DataTable configuration options
+    });
 }
+
+
+
+
+
+
 var Delete = function (id) {
     Swal.fire({
         title: 'Do you want to delete this Vote?',

@@ -32,11 +32,11 @@ var tblQuestionDataTable = function () {
 
 
         "columns": [
-            {
-                data: "Id", "name": "Id", render: function (data, type, row) {
-                    return "<a href='#' class='fa fa-eye' onclick=Details('" + row.Id + "');>" + row.Id + "</a>";
-                }
-            },
+            //{
+            //    data: "Id", "name": "Id", render: function (data, type, row) {
+            //        return "<a href='#' class='fa fa-eye' onclick=Details('" + row.Id + "');>" + row.Id + "</a>";
+            //    }
+            //},
             { "data": "VoteName", "name": "VoteName" },
             { "data": "QuestionName", "name": "QuestionName" },
 

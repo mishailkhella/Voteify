@@ -55,10 +55,9 @@ namespace Vote2.Controllers
                     _GetGridItem = _GetGridItem.Where(obj => obj.Id.ToString().Contains(searchValue)
                     || obj.Id.ToString().ToLower().Contains(searchValue)
                     || obj.QuestionName.ToLower().Contains(searchValue)
-                    || obj.QuestionId.ToString().ToLower().Contains(searchValue)
-                    || obj.QuestionTypeId.ToString().ToLower().Contains(searchValue)
+                    || obj.VoteName.ToLower().Contains(searchValue)
                     || obj.ModifiedDate.ToString().ToLower().Contains(searchValue)
-                    || obj.ModifiedBy.ToString().ToLower().Contains(searchValue)
+                    || obj.ModifiedBy.ToLower().Contains(searchValue)
                     || obj.CreatedDate.ToString().Contains(searchValue)
                     || obj.CreatedBy.ToLower().Contains(searchValue));
                 }

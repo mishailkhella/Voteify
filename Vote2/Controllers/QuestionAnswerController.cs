@@ -54,10 +54,9 @@ namespace Vote2.Controllers
                     _GetGridItem = _GetGridItem.Where(obj => obj.Id.ToString().Contains(searchValue)
                     || obj.Id.ToString().ToLower().Contains(searchValue)
                     || obj.AnswerName.ToLower().Contains(searchValue)
-                    || obj.QuestionId.ToString().ToLower().Contains(searchValue)
-                    || obj.VoteId.ToString().ToLower().Contains(searchValue)
+                    || obj.VoteName.ToLower().Contains(searchValue)
                     || obj.ModifiedDate.ToString().ToLower().Contains(searchValue)
-                    || obj.ModifiedBy.ToString().ToLower().Contains(searchValue)
+                    || obj.ModifiedBy.ToLower().Contains(searchValue)
                     || obj.CreatedDate.ToString().Contains(searchValue)
                     || obj.CreatedBy.ToLower().Contains(searchValue));
                 }
@@ -76,8 +75,7 @@ namespace Vote2.Controllers
             QuestionAnswerViewModel vm = new();
             var votes = _Context.Votes.Where(x=>x.Cancelled==false).ToList();
             ViewBag.GetddlVotes = new SelectList(votes, "Id", "VoteName");
-            //var Question = _Context.Questions.Where(z=>z.Cancelled == false && z.QuestionTypeId == 2).ToList();
-            //ViewBag.GetddlQuestions = new SelectList(Question, "Id", "QuestionName");
+        
             if (id > 0)
             {
                 QuestionAnswer _QuestionAnswer = await _Context.QuestionAnswer.Where(x => x.Cancelled == false && x.Id == id).FirstOrDefaultAsync();
@@ -87,8 +85,8 @@ namespace Vote2.Controllers
                 }
                 vm = _QuestionAnswer;
 
-
-                ViewBag.Question = new SelectList(await _iCommon.GetddlQuestionsByVoteId(_QuestionAnswer.Id), "Id", "QuestionTypeName");
+                var Question = _Context.Questions.Where(z => z.Cancelled == false && z.QuestionTypeId == 2 && z.VoteId == _QuestionAnswer.VoteId).ToList();
+                ViewBag.GetddlQuestions = new SelectList(Question, "Id", "QuestionName");
 
                 return PartialView("_AddEdit", vm);
 
