@@ -83,7 +83,7 @@ namespace Vote2.Controllers
         {
             VotesReportViewModel viewModel = new VotesReportViewModel();
             viewModel.QuestionsReportList = new();
-            var Vote = await _Context.Votes.Where(i => i.Id == VoteId && i.IsActive == true && i.EndDate >= DateTime.Now && i.StartDate <= DateTime.Now && i.Cancelled == false).FirstOrDefaultAsync();
+            var Vote = await _Context.Votes.Where(i => i.Id == VoteId && i.Cancelled == false).FirstOrDefaultAsync();
             if (Vote == null)
             {
                 return NoContent();
