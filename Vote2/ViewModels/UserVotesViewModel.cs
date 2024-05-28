@@ -3,7 +3,7 @@ using Vote2.Models;
 
 namespace Vote2.ViewModels
 {
-    public class UserVotesViewModel : EntityBase
+    public class UserVotesViewModel
     {
         public Int64 Id { get; set; }
        

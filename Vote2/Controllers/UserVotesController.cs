@@ -71,7 +71,42 @@ namespace Vote2.Controllers
         [HttpGet]
         public async Task<IActionResult> Vote(Int64 VoteId, Int64 UserId)
         {
-            return View();
+            UserAnswerVotesViewModel viewModel = new UserAnswerVotesViewModel();
+            viewModel.VoteQuestionsList = new();
+            var Vote = await _Context.Votes.Where(i => i.Id == VoteId && i.IsActive == true && i.EndDate >= DateTime.Now && i.StartDate <= DateTime.Now && i.Cancelled == false).FirstOrDefaultAsync();
+            if (Vote == null)
+            {
+                return RedirectToAction("Index");
+            }
+            var User = await _Context.Users.Where(i => i.Id == UserId && i.Cancelled == false).FirstOrDefaultAsync();
+            if (User == null)
+            {
+                return NoContent();
+            }
+
+            var AllQuestions = await _Context.Questions.Where(i => i.VoteId == VoteId && i.Cancelled == false).ToListAsync();
+            var AllAnswers = await _Context.QuestionAnswer.Where(i => i.Cancelled == false && i.VoteId == VoteId).ToListAsync();
+            foreach (var Question in AllQuestions)
+            {
+                VoteQuestionsViewModel voteQuestion = new VoteQuestionsViewModel();
+                voteQuestion.VoteQuestionsAnswersList = new List<VoteQuestionsAnswersViewModel>();
+                voteQuestion.Id = Question.Id;
+                voteQuestion.QuestionName = Question.QuestionName;
+                voteQuestion.QuestionTypeId = Question.QuestionTypeId;
+
+                if (Question.QuestionTypeId == 2) //Choice
+                {
+                    var QuestionAnswers = AllAnswers.Where(i => i.QuestionId == Question.Id).ToList();
+
+                    voteQuestion.VoteQuestionsAnswersList = QuestionAnswers.Select(i => new VoteQuestionsAnswersViewModel()
+                    {
+                        AnswerName = i.AnswerName,
+                        Id = i.Id
+                    }).ToList();
+                }
+                viewModel.VoteQuestionsList.Add(voteQuestion);
+            }
+            return View(viewModel);
         }
         [HttpPost]
         public async Task<IActionResult> AddEdit(VoteInfoViewModel vm)
