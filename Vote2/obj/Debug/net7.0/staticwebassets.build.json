@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pY7RHSkbpM96Y2twBBRsPwXleL59IN+UECMhcny1D1Q=",
+  "Hash": "jX8RRW3wDEZZumYJed2IpAr2i1hiT9Gjyys1VmfBEdo=",
   "Source": "Vote2",
   "BasePath": "_content/Vote2",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\CSS\\TimerCountDown.css"
+    },
+    {
+      "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\CSS\\UserVotes.css",
+      "SourceId": "Vote2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\",
+      "BasePath": "_content/Vote2",
+      "RelativePath": "CSS/UserVotes.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\CSS\\UserVotes.css"
     },
     {
       "Identity": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\CSS\\VoteCard.css",

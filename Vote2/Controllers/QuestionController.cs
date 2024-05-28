@@ -46,7 +46,7 @@ namespace Vote2.Controllers
                 {
 
                     _GetGridItem = _GetGridItem.OrderBy(sortColumn + " " + sortColumnAscDesc);
-                     
+
                 }
                 //Search
                 if (!string.IsNullOrEmpty(searchValue))
@@ -78,19 +78,19 @@ namespace Vote2.Controllers
             var votes = _Context.Votes.ToList();
             ViewBag.GetddlVotes = new SelectList(votes, "Id", "VoteName");
 
-            var Type =_Context.Questionstype.ToList();
+            var Type = _Context.Questionstype.ToList();
             ViewBag.GetddlQuestionType = new SelectList(Type, "Id", "QuestionTypeName");
-            //ViewBag.Votes = new SelectList(await _iCommon.GetddlQuestionsByVoteId(vm.Id), "Id", "VoteName");
+
             if (id > 0)
             {
-                Question _Question = await _Context.Questions.Where(x => x.Cancelled == false).FirstOrDefaultAsync();
+                Question _Question = await _Context.Questions.Where(x => x.Cancelled == false && x.Id == id).FirstOrDefaultAsync();
                 if (_Question == null)
                 {
                     return NotFound();
                 }
                 vm = _Question;
-                ViewBag.Question = new SelectList(await _iCommon.GetddlQuestionsByVoteId(_Question.Id), "Id", "QuestionTypeName");
-                //ViewBag.Votes = new SelectList( _iCommon.GetAllVotes(), "Id", "VoteName");
+                //ViewBag.Question = new SelectList(await _iCommon.GetddlQuestionsByVoteId(_Question.Id), "Id", "QuestionTypeName");
+                //ViewBag.Votes = new SelectList(_iCommon.GetAllVotes(), "Id", "VoteName");
                 return PartialView("_AddEdit", vm);
             }
             else
@@ -105,7 +105,7 @@ namespace Vote2.Controllers
             {
                 try
                 {
-                    Question _question = new ();
+                    Question _question = new();
 
                     if (vm.Id > 0)
                     {
@@ -114,7 +114,7 @@ namespace Vote2.Controllers
                         vm.CreatedDate = _question.CreatedDate;
                         vm.CreatedBy = _question.CreatedBy;
                         vm.ModifiedDate = DateTime.Now;
-                        vm.ModifiedBy =  HttpContext.Session.GetString("LoginMail");
+                        vm.ModifiedBy = HttpContext.Session.GetString("LoginMail");
                         _Context.Entry(_question).CurrentValues.SetValues(vm);
                         await _Context.SaveChangesAsync();
                         return new JsonResult(_question);

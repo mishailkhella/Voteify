@@ -86,8 +86,9 @@ namespace Vote2.Controllers
                     return NotFound();
                 }
                 vm = _QuestionAnswer;
-              
 
+
+                ViewBag.Question = new SelectList(await _iCommon.GetddlQuestionsByVoteId(_QuestionAnswer.Id), "Id", "QuestionTypeName");
 
                 return PartialView("_AddEdit", vm);
 

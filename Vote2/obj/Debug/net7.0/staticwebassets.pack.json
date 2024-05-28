@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\CSS\\TimerCountDown.css"
     },
     {
+      "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\CSS\\UserVotes.css",
+      "PackagePath": "staticwebassets\\CSS\\UserVotes.css"
+    },
+    {
       "Id": "C:\\Voteify\\Voteify\\Vote2\\wwwroot\\CSS\\VoteCard.css",
       "PackagePath": "staticwebassets\\CSS\\VoteCard.css"
     },
