@@ -80,9 +80,20 @@ namespace Vote2.Controllers
             ViewBag.GetddlQuestions = new SelectList(Question, "Id", "QuestionName");
             if (id > 0)
             {
-                vm = await _Context.QuestionAnswer.FindAsync(vm.Id);
+                QuestionAnswer _QuestionAnswer = await _Context.QuestionAnswer.Where(x => x.Cancelled == false && x.Id == id).FirstOrDefaultAsync();
+                if (_QuestionAnswer == null)
+                {
+                    return NotFound();
+                }
+                vm = _QuestionAnswer;
+              
+
 
                 return PartialView("_AddEdit", vm);
+
+                //vm = await _Context.QuestionAnswer.FindAsync(vm.Id);
+
+                //return PartialView("_AddEdit", vm);
             }
             else
             {

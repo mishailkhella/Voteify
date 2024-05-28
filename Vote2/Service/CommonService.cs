@@ -180,10 +180,17 @@ namespace Vote2.Service
             try
             {
                 return (from _QuestionAnswer in _Context.QuestionAnswer
+                        join _Vote in _Context.Votes
+                        on _QuestionAnswer.VoteId equals _Vote.Id
+                        join _Question in _Context.Questions
+                        on _QuestionAnswer.QuestionId equals _Question.Id
                         where _QuestionAnswer.Cancelled == false
                         select new QuestionAnswerViewModel
                         {
                             Id = _QuestionAnswer.Id,
+                            VoteName = _Vote.VoteName,
+                            QuestionName = _Question.QuestionName,
+                           
                             VoteId = _QuestionAnswer.VoteId,
                             AnswerName = _QuestionAnswer.AnswerName,
                             QuestionId = _QuestionAnswer.QuestionId,

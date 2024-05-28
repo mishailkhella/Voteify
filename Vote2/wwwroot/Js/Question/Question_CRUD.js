@@ -66,7 +66,7 @@ var Delete = function (id) {
                     var table = $('#tblQuestion').DataTable();
                     table.clear();
                     table.destroy();
-                    tblVotesDataTable()
+                    tblQuestionDataTable()
                 }
             });
         }

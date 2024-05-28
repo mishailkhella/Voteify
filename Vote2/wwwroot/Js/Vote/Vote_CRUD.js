@@ -13,7 +13,6 @@ var AddEdit = function (id) {
     }
     loadExtraBigModal(url);
 };
-
 var Save = function () {
     debugger
     //if (!$("#frmVote").valid()) {
@@ -27,22 +26,30 @@ var Save = function () {
         type: "POST",
         url: "/Vote/AddEdit",
         data: _frmVote,
-        success: function (result) {
+        success: function ("Updated Successfully") {
             Swal.fire({
-                title: result,
+                title: "Updated Successfully",
                 icon: "success"
             }).then(function () {
                 document.getElementById("btnClose").click();
                 $("#btnSave").val("Save");
                 $('#btnSave').removeAttr('disabled');
-                $('#tblBook').DataTable().ajax.reload();
+                $('#tblVotes').DataTable().ajax.reload();
             });
         },
-        //error: function (errormessage) {
-        //    SwalSimpleAlert(errormessage.responseText, "warning");
-        //}
+        error: function () {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+                footer: '<a href="#">Why do I have this issue?</a>'
+            });
+            $("#btnSave").val("Save");
+            $('#btnSave').removeAttr('disabled');
+        }
     });
 }
+
 var Delete = function (id) {
     
 

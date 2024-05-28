@@ -6,6 +6,7 @@ using Vote2.Models;
 using Vote2.ViewModels;
 using System.Linq.Dynamic.Core;
 
+
 namespace Vote2.Controllers
 {
     public class QuestionController : Controller
@@ -76,12 +77,20 @@ namespace Vote2.Controllers
             QuestionViewModel vm = new();
             var votes = _Context.Votes.ToList();
             ViewBag.GetddlVotes = new SelectList(votes, "Id", "VoteName");
+
             var Type =_Context.Questionstype.ToList();
             ViewBag.GetddlQuestionType = new SelectList(Type, "Id", "QuestionTypeName");
+            //ViewBag.Votes = new SelectList(await _iCommon.GetddlQuestionsByVoteId(vm.Id), "Id", "VoteName");
             if (id > 0)
             {
-                vm = await _Context.Questions.FindAsync(vm.Id);
+                Question _Question = await _Context.Questions.Where(x => x.Cancelled == false).FirstOrDefaultAsync();
+                if (_Question == null)
+                {
+                    return NotFound();
+                }
+                vm = _Question;
 
+                //ViewBag.Votes = new SelectList( _iCommon.GetAllVotes(), "Id", "VoteName");
                 return PartialView("_AddEdit", vm);
             }
             else
@@ -100,21 +109,16 @@ namespace Vote2.Controllers
 
                     if (vm.Id > 0)
                     {
-
-
-                        Question Question = await _Context.Questions.Where(x => x.Cancelled == false).FirstOrDefaultAsync();
-                        if (Question == null)
+                        Question _Question = await _Context.Questions.Where(x => x.Cancelled == false).FirstOrDefaultAsync();
+                        if (_Question == null)
                         {
                             return NotFound();
                         }
-                        vm = Question;
+                        vm = _Question;
 
-                        //ViewBag.Questions = new SelectList(await _iCommon.GetddlQuestions(), "Id", "QuestionName");
-                        //ViewBag.Sections = new SelectList(await _iCommon.GetddlSectionsByDepartementId(Vote.DepartmentId), "Id", "Name");
+                        //return PartialView("_AddEdit", vm);
 
-                        return PartialView("_AddEdit", vm);
-
-                        _question = await _Context.Questions.FindAsync(vm.Id);
+                        //_question = await _Context.Questions.FindAsync(vm.Id);
 
                         vm.CreatedDate = _question.CreatedDate;
                         vm.CreatedBy = _question.CreatedBy;
@@ -174,6 +178,7 @@ namespace Vote2.Controllers
 
 
         }
+
 
     }
 }

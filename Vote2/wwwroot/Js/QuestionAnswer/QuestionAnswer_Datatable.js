@@ -39,10 +39,9 @@ var tblQuestionAnswerDataTable = function () {
             },
             { "data": "VoteName", "name": "VoteName" },
             { "data": "QuestionName", "name": "QuestionName" },
+            { "data": "AnswerName", "name": "AnswerName" },
 
-            {
-
-            },
+            
             {
                 "data": "CreatedDate",
                 "name": "CreatedDate",
@@ -50,13 +49,13 @@ var tblQuestionAnswerDataTable = function () {
                 "render": function (data) {
                     var date = new Date(data);
                     var month = date.getMonth() + 1;
-                    return (date.getDate() + "/" + month.length > 1 ? month : month) + "/" + date.getFullYear();
+                    return (month.length > 1 ? month : month) + "/" + date.getDate() + "/" + date.getFullYear();
                 }
             },
             { "data": "CreatedBy", "name": "CreatedBy" },
             {
                 "data": "ModefiedDate",
-                "name": "ModefiedDate",
+                "name": "ModifiedDate",
                 "autoWidth": true,
                 "render": function (data) {
                     var date = new Date(data);
@@ -64,7 +63,7 @@ var tblQuestionAnswerDataTable = function () {
                     return (date.getDate() + "/" + month.length > 1 ? month : month) + "/" + date.getFullYear();
                 }
             },
-            { "data": "ModefiedBy", "name": "ModefiedBy" },
+            { "data": "ModifiedBy", "name": "ModifiedBy" },
             {
                 data: null, render: function (data, type, row) {
                     return "<a href='#' class='btn btn-info btn-xs' onclick=AddEdit('" + row.Id + "');>Edit</a>";

@@ -6,7 +6,7 @@ $(document).ready(function () {
 });
 var tblVotesDataTable = function () {
     
-    $("#tblQuestion").DataTable({
+    $("#tblVotes").DataTable({
         paging: true,
         select: true,
         "order": [[0, "desc"]],
@@ -16,8 +16,6 @@ var tblVotesDataTable = function () {
         buttons: [
             'pageLength',
         ],
-
-
         "processing": true,
         "serverSide": true,
         "filter": true, //Search Box
@@ -42,9 +40,6 @@ var tblVotesDataTable = function () {
             { "data": "DepartmentName", "name": "DepartmentName" },
             { "data": "SectionName", "name": "SectionName" },
             { "data": "LevelName", "name": "LevelName" },
-           
-
-          
             {
                 "data": "CreatedDate",
                 "name": "CreatedDate",
@@ -58,8 +53,8 @@ var tblVotesDataTable = function () {
             { "data": "CreatedBy", "name": "CreatedBy" },
 
             {
-                "data": "ModefiedDate",
-                "name": "ModefiedDate",
+                "data": "ModifiedDate",
+                "name": "ModifiedDate",
                 "autoWidth": true,
                 "render": function (data) {
                     var date = new Date(data);

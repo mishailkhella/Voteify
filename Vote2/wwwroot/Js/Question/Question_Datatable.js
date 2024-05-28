@@ -41,9 +41,6 @@ var tblQuestionDataTable = function () {
             { "data": "QuestionName", "name": "QuestionName" },
 
             {
-
-            },
-            {
                 "data": "CreatedDate",
                 "name": "CreatedDate",
                 "autoWidth": true,
@@ -55,13 +52,15 @@ var tblQuestionDataTable = function () {
             },
             { "data": "CreatedBy", "name": "CreatedBy" },
             {
-                "data": "ModefiedDate",
-                "name": "ModefiedDate",
-                "autoWidth": true,
-                "render": function (data) {
+                data: "ModefiedDate",
+                name: "ModefiedDate",
+                autoWidth: true,
+                render: function (data) {
                     var date = new Date(data);
-                    var month = date.getMonth() + 1;
-                    return (date.getDate() + "/" + month.length > 1 ? month : month) + "/" + date.getFullYear();
+                    var day = date.getDate().toString().padStart(2, '0');
+                    var month = (date.getMonth() + 1).toString().padStart(2, '0');
+                    var year = date.getFullYear();
+                    return `${day}/${month}/${year}`;
                 }
             },
             { "data": "ModefiedBy", "name": "ModefiedBy" },
@@ -77,7 +76,7 @@ var tblQuestionDataTable = function () {
             }
         ],
         'columnDefs': [{
-            'targets': [7, 8],
+            'targets': [6, 7],
             'orderable': false,
         }],
 
