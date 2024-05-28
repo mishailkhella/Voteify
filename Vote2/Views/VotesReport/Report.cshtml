@@ -1,0 +1,110 @@
+﻿@model Vote2.ViewModels.VotesReportViewModel
+
+<link href="~/CSS/VoteReport.css" rel="stylesheet" />
+
+<div class="row justify-content-center align-items-center Margin">
+    <h1>
+        @Model.VoteName
+    </h1>
+</div>
+
+<div class="row Margin">
+    <div class="col-md-6 row NoOfVoters">
+        <div class="">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="counter">
+                        <div class="counter-icon">
+                            <span><i class="fa fa-briefcase"></i></span>
+                        </div>
+                        <h3>No. Of Voters</h3>
+                        <span class="counter-value">@Model.NoOfVoters</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 row TimeCounter">
+        <div id="flipdown" class="flipdown" data-end-date="@Model.VoteEndDate"></div>
+    </div>
+</div>
+
+<div class="row Vote-Con Margin">
+    @{
+        int counter = 1;
+    }
+    @foreach (var Question in Model.QuestionsReportList)
+    {
+        <div class="col-md-12 row Question-Con">
+            <div class="col-sm-12 row Question">
+                <h2>@counter.</h2><h2>@Question.QuestionName</h2>
+            </div>
+            @if (Question.QuestionTypeId == 2) //Choice
+            {
+                <div class="col-md-12 row Choices-Answer">
+                    @foreach (var Answer in Question.QuestionsAnswersReportList)
+                    {
+                        <div>
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="counter pink">
+                                        <div class="counter-icon">
+                                            <span><i class="fa fa-globe"></i></span>
+                                        </div>
+                                        <h3>@Answer.AnswerName</h3>
+                                        <span class="counter-value">@Answer.Percentage</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            }
+            else if (Question.QuestionTypeId == 1) //text
+            {
+                <div class="col-sm-12">
+                    <table class="CustomTablegray" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>User Name</th>
+                                <th>Voted Answer</th>
+                                <th>Vote Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var Answer in Question.QuestionsAnswersReportList)
+                            {
+                                <tr>
+                                    <td>@Answer.UserName</td>
+                                    <td>@Answer.AnswerText</td>
+                                    <td>@Answer.VoteDate</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+
+        </div>
+
+        counter++;
+    }
+</div>
+
+
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('.flipdown').each(function (index, element) {
+            const endDate = $(element).data('end-date');
+            const endDateUnix = new Date(endDate).getTime() / 1000;
+
+            new FlipDown(endDateUnix, element.id).start();
+        });
+    });
+</script>
