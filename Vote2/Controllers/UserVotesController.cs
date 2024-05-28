@@ -125,25 +125,28 @@ namespace Vote2.Controllers
         {
             try
             {
-                VotedUsers votedUsers = new VotedUsers();
-                votedUsers.UserId = vm.UserId;
-                votedUsers.VotedId = vm.VoteId;
-                votedUsers.VoteDate = DateTime.Now;
-
-                _Context.VotedUsers.Add(votedUsers);
-                await _Context.SaveChangesAsync();
-
-                foreach (var Question in vm.VoteQuestionsList)
+                if (vm.VoteQuestionsList != null)
                 {
-                    UserAnswersVote userAnswers = new UserAnswersVote();
-                    userAnswers.AnswerText = Question.AnswerText;
-                    userAnswers.AnswerId = Question.SelectedAnswerId;
-                    userAnswers.VotedUserId = votedUsers.Id;
-                    userAnswers.VoteId = vm.VoteId;
-                    userAnswers.QuestionId = Question.Id;
+                    VotedUsers votedUsers = new VotedUsers();
+                    votedUsers.UserId = vm.UserId;
+                    votedUsers.VotedId = vm.VoteId;
+                    votedUsers.VoteDate = DateTime.Now;
 
-                    _Context.UserAnswersVote.Add(userAnswers);
+                    _Context.VotedUsers.Add(votedUsers);
                     await _Context.SaveChangesAsync();
+
+                    foreach (var Question in vm.VoteQuestionsList)
+                    {
+                        UserAnswersVote userAnswers = new UserAnswersVote();
+                        userAnswers.AnswerText = Question.AnswerText;
+                        userAnswers.AnswerId = Question.SelectedAnswerId;
+                        userAnswers.VotedUserId = votedUsers.Id;
+                        userAnswers.VoteId = vm.VoteId;
+                        userAnswers.QuestionId = Question.Id;
+
+                        _Context.UserAnswersVote.Add(userAnswers);
+                        await _Context.SaveChangesAsync();
+                    }
                 }
 
                 return RedirectToAction("Index");
