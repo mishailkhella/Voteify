@@ -14,79 +14,26 @@ var AddEdit = function (id) {
     loadExtraBigModal(url);
 };
 
-//var Save = function () {
-
-//    //if (!$("#frmVote").valid()) {
-//    //    return;
-//    //}
-
-//    var _frmQuestionAnswer = $("#frmQuestionAnswer").serialize();
-//    $("#btnSave").val("Please Wait");
-//    $('#btnSave').attr('disabled', 'disabled');
-//    $.ajax({
-//        type: "POST",
-//        url: "/QuestionAnswer/AddEdit",
-//        data: _frmQuestionAnswer,
-//        success: function (response) {
-//            Swal.fire({
-//                title: "Updated Successfully",
-//                icon: "success"
-//            }).then(function () {
-//                document.getElementById("btnClose").click();
-//                $("#btnSave").val("Save");
-//                $('#btnSave').removeAttr('disabled');
-//                $('#frmQuestionAnswer').DataTable().ajax.reload();
-//            });
-//        },
-//        error: function (errormessage) {
-//            SwalSimpleAlert(errormessage.responseText, "warning");
-//        }
-//    });
-//}
-
-
-
-
-
-
-
-var Save = function () {
-    debugger;
-    // Uncomment the validation if necessary
-    // if (!$("#frmVote").valid()) {
-    //     return;
-    // }
-
-    var _frmQuestion = $("#frmQuestion").serialize();
+function Save() {
+    debugger
+    var _frmQuestionAnswer = $("#frmQuestionAnswer").serialize();
+    var isEdit = $("#Id").val() > 0; // Assuming you have an input field with id="VoteId" in your form
     $("#btnSave").val("Please Wait");
     $('#btnSave').attr('disabled', 'disabled');
 
     $.ajax({
         type: "POST",
-        url: "/Question/AddEdit",
-        data: _frmQuestion,
+        url: "/QuestionAnswer/AddEdit",
+        data: _frmQuestionAnswer,
         success: function (response) {
             Swal.fire({
-                title: "Updated Successfully",
+                title: isEdit ? "Updated Successfully" : "Added Successfully",
                 icon: "success"
             }).then(function () {
                 document.getElementById("btnClose").click();
                 $("#btnSave").val("Save");
                 $('#btnSave').removeAttr('disabled');
-
-                //// Assuming there is a table inside the form with id 'frmQuestionTable'
-                //var questionTable = $('#frmQuestion').DataTable();
-                //if (questionTable) {
-                //    questionTable.ajax.reload(null, false);
-                //}
-
-                //// Handling the '#tblVotes' DataTable
-                var votesTable = $('#tblQuestion').DataTable();
-
-                votesTable.clear();
-                votesTable.destroy();
-                tblQuestionDataTable();
-
+                $('#tblQuestionAnswer').DataTable().ajax.reload(null, false); // Use null and false to reset paging
             });
         },
         error: function () {
@@ -100,25 +47,14 @@ var Save = function () {
             $('#btnSave').removeAttr('disabled');
         }
     });
-};
+}
 
 // Ensure tblVotesDataTable() is defined to initialize #tblVotes DataTable
-function tblVotesDataTable() {
-    $('#tblQuestion').DataTable({
+function tblQuestionAnswerDataTable() {
+    $('#tblQuestionAnswer').DataTable({
         // DataTable configuration options
     });
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 var Delete = function (id) {

@@ -1,5 +1,4 @@
-﻿
-var AddEdit = function (id) {
+﻿var AddEdit = function (id) {
     debugger
     var url = "/Question/AddEdit?id=" + id;
 
@@ -14,50 +13,11 @@ var AddEdit = function (id) {
     loadExtraBigModal(url);
 };
 
-//function Save() {
-//    var _frmVote = $("#tblQuestion").serialize();
-//    $("#btnSave").val("Please Wait");
-//    $('#btnSave').attr('disabled', 'disabled');
 
-//    $.ajax({
-//        type: "POST",
-//        url: "/Vote/AddEdit",
-//        data: _frmVote,
-//        success: function (response) {
-//            Swal.fire({
-//                title: "Updated Successfully",
-//                icon: "success"
-//            }).then(function () {
-//                document.getElementById("btnClose").click();
-//                $("#btnSave").val("Save");
-//                $('#btnSave').removeAttr('disabled');
-//                $('#tblQuestion').DataTable().ajax.reload(null, false); // Use null and false to reset paging
-//            });
-//        },
-//        error: function () {
-//            Swal.fire({
-//                icon: "error",
-//                title: "Oops...",
-//                text: "Something went wrong!",
-//                footer: '<a href="#">Why do I have this issue?</a>'
-//            });
-//            $("#btnSave").val("Save");
-//            $('#btnSave').removeAttr('disabled');
-//        }
-//    });
-//}
-
-
-
-
-var Save = function () {
-    debugger;
-    // Uncomment the validation if necessary
-    // if (!$("#frmVote").valid()) {
-    //     return;
-    // }
-
+function Save() {
+    debugger
     var _frmQuestion = $("#frmQuestion").serialize();
+    var isEdit = $("#Id").val() > 0; // Assuming you have an input field with id="VoteId" in your form
     $("#btnSave").val("Please Wait");
     $('#btnSave').attr('disabled', 'disabled');
 
@@ -67,26 +27,13 @@ var Save = function () {
         data: _frmQuestion,
         success: function (response) {
             Swal.fire({
-                title: "Updated Successfully",
+                title: isEdit ? "Updated Successfully" : "Added Successfully",
                 icon: "success"
             }).then(function () {
                 document.getElementById("btnClose").click();
                 $("#btnSave").val("Save");
                 $('#btnSave').removeAttr('disabled');
-
-                //// Assuming there is a table inside the form with id 'frmQuestionTable'
-                //var questionTable = $('#frmQuestion').DataTable();
-                //if (questionTable) {
-                //    questionTable.ajax.reload(null, false);
-                //}
-
-                //// Handling the '#tblVotes' DataTable
-                var votesTable = $('#tblQuestion').DataTable();
-             
-                    votesTable.clear();
-                    votesTable.destroy();
-                    tblQuestionDataTable();
-                
+                $('#tblQuestion').DataTable().ajax.reload(null, false); // Use null and false to reset paging
             });
         },
         error: function () {
@@ -100,20 +47,13 @@ var Save = function () {
             $('#btnSave').removeAttr('disabled');
         }
     });
-};
-
+}
 // Ensure tblVotesDataTable() is defined to initialize #tblVotes DataTable
 function tblVotesDataTable() {
     $('#tblQuestion').DataTable({
         // DataTable configuration options
     });
 }
-
-
-
-
-
-
 var Delete = function (id) {
     Swal.fire({
         title: 'Do you want to delete this Vote?',

@@ -9,12 +9,11 @@
         <div class="col-md-12">
             <form id="frmVote">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="Id"  />
                 <input type="hidden" asp-for="CreatedDate" />
                 <input type="hidden" asp-for="CreatedBy" />
                 <input type="hidden" asp-for="ModifiedBy" />
-
-
+              
                 <div class="form-group directiondiv">
                     <label class="control-label">Vote Name</label>
                     <input type="text" asp-for="VoteName" class="form-control" />

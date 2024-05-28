@@ -1,20 +1,19 @@
-﻿
-var AddEdit = function (id) {
-
+﻿var AddEdit = function (id) {
+    debugger
     var url = "/Vote/AddEdit?id=" + id;
 
     if (id > 0) {
         $('#titleExtraBigModal').html("Edit Vote");
-    }
-    else {
+    } else {
         $('#titleExtraBigModal').html("Add Vote");
-
-
     }
     loadExtraBigModal(url);
 };
+
 function Save() {
+    debugger
     var _frmVote = $("#frmVote").serialize();
+    var isEdit = $("#Id").val() > 0; // Assuming you have an input field with id="VoteId" in your form
     $("#btnSave").val("Please Wait");
     $('#btnSave').attr('disabled', 'disabled');
 
@@ -24,7 +23,7 @@ function Save() {
         data: _frmVote,
         success: function (response) {
             Swal.fire({
-                title: "Updated Successfully",
+                title: isEdit ? "Updated Successfully" : "Added Successfully",
                 icon: "success"
             }).then(function () {
                 document.getElementById("btnClose").click();
@@ -45,9 +44,8 @@ function Save() {
         }
     });
 }
-var Delete = function (id) {
-    
 
+var Delete = function (id) {
     Swal.fire({
         title: 'Do you want to delete this Vote?',
         icon: 'warning',
