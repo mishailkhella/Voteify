@@ -13,6 +13,7 @@ namespace Vote2.Models
         public Int64 FacultyId { get; set; }
         public Int64 DepartmentId { get; set; }
         public Int64 SectionId { get; set; }
-    
+        public Int64 LevelId { get; set; }
+
     }
 }

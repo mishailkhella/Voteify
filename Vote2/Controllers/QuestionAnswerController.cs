@@ -151,12 +151,12 @@ namespace Vote2.Controllers
             try
             {
 
-                var _question = await _Context.Questions.FindAsync(id);
-                _question.Cancelled = true;
-                _Context.Update(_question);
+                var _questionAnswer= await _Context.QuestionAnswer.FindAsync(id);
+                _questionAnswer.Cancelled = true;
+                _Context.Update(_questionAnswer);
                 await _Context.SaveChangesAsync();
                 jsonResualtViewModel.IsSuccess = true;
-                jsonResualtViewModel.Message = "Question Deleted Successfully. ID: " + _question.Id;
+                jsonResualtViewModel.Message = "Question Answer Deleted Successfully. ID: " + _questionAnswer.Id;
                 return new JsonResult(jsonResualtViewModel);
 
             }

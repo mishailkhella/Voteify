@@ -318,6 +318,9 @@ namespace Vote2.Migrations
                     b.Property<long>("FacultyId")
                         .HasColumnType("bigint");
 
+                    b.Property<long>("LevelId")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("ModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
