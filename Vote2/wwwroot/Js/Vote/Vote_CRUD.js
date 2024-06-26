@@ -1,5 +1,6 @@
 ﻿var AddEdit = function (id) {
-    debugger
+
+
     var url = "/Vote/AddEdit?id=" + id;
 
     if (id > 0) {
@@ -11,7 +12,7 @@
 };
 
 function Save() {
-    debugger
+    
     var _frmVote = $("#frmVote").serialize();
     var isEdit = $("#Id").val() > 0; // Assuming you have an input field with id="VoteId" in your form
     $("#btnSave").val("Please Wait");

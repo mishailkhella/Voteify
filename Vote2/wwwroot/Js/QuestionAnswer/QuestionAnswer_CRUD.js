@@ -15,7 +15,7 @@ var AddEdit = function (id) {
 };
 
 function Save() {
-    debugger
+ 
     var _frmQuestionAnswer = $("#frmQuestionAnswer").serialize();
     var isEdit = $("#Id").val() > 0; // Assuming you have an input field with id="VoteId" in your form
     $("#btnSave").val("Please Wait");
